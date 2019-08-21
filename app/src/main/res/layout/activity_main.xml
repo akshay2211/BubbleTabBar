@@ -18,5 +18,4 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
     </com.fxn.BubbleTabBar>
-
 </androidx.constraintlayout.widget.ConstraintLayout>
