@@ -3,8 +3,8 @@
     <color name="white">#FFFFFF</color>
     <color name="blank">#696969</color>
 
-    <color name="home">#2196F3</color>
-    <color name="activity">#673AB7</color>
-    <color name="favorites">#E91E63</color>
-    <color name="settings">#4CAF50</color>
+    <color name="home">#e74c3c</color>
+    <color name="logger">#673AB7</color>
+    <color name="documents">#3498db</color>
+    <color name="settings">#2ecc71</color>
 </resources>

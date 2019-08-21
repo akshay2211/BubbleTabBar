@@ -33,17 +33,12 @@ internal fun ImageView.colorAnimator(
 
 internal fun ImageView.setColorStateListAnimator(
     @ColorInt color: Int,
-    @ColorInt unselectedColor: Int,
-    @ColorInt disabledColor: Int
+    @ColorInt unselectedColor: Int
 ) {
     val stateList = StateListAnimator().apply {
         addState(
             intArrayOf(android.R.attr.state_selected),
             colorAnimator(unselectedColor, color, ICON_STATE_ANIMATOR_DURATION)
-        )
-        addState(
-            intArrayOf(android.R.attr.state_enabled.unaryMinus()),
-            colorAnimator(disabledColor, disabledColor, 1)
         )
         addState(
             intArrayOf(),

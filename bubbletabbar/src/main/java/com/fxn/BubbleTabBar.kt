@@ -20,6 +20,7 @@ class BubbleTabBar : LinearLayoutCompat {
 
     init {
         orientation = HORIZONTAL
+        gravity = Gravity.CENTER
     }
 
     constructor(context: Context) : super(context) {
@@ -46,7 +47,7 @@ class BubbleTabBar : LinearLayoutCompat {
         attrs: AttributeSet?
     ) {
 
-        setPadding(20, 10, 10, 20)
+        setPadding(20, 10, 20, 10)
         orientation = HORIZONTAL
         gravity = Gravity.CENTER_VERTICAL
         if (attrs != null) {
