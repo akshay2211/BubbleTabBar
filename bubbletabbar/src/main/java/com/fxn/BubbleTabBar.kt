@@ -9,14 +9,16 @@ import android.view.Gravity
 import androidx.annotation.RequiresApi
 import androidx.appcompat.widget.LinearLayoutCompat
 import com.fxn.bubbletabbar.R
-import com.ismaeldivita.chipnavigation.model.MenuParser
-
+import com.fxn.parser.MenuParser
 
 class BubbleTabBar : LinearLayoutCompat {
-    var bubble_selected_color: Int = Color.DKGRAY
-    var bubble_unselected_color: Int = Color.GRAY
-    var icon: Int = 0
-    var text: String = "hello"
+    private var onBubbleClickListner: OnBubbleClickListner? = null
+    private var disabled_icon_colorParam: Int = Color.GRAY
+    private var horizontal_paddingParam: Float = 0F
+    private var vertical_paddingParam: Float = 0F
+    private var icon_sizeParam: Float = 0F
+    private var title_sizeParam: Float = 0F
+    private var custom_fontParam: String = ""
 
     init {
         orientation = HORIZONTAL
@@ -42,24 +44,44 @@ class BubbleTabBar : LinearLayoutCompat {
         init(context, attrs)
     }
 
+    fun addBubbLeListner(onBubbleClickListner: OnBubbleClickListner) {
+        this.onBubbleClickListner = onBubbleClickListner
+    }
+
     private fun init(
         context: Context,
         attrs: AttributeSet?
     ) {
-
-        setPadding(20, 10, 20, 10)
         orientation = HORIZONTAL
         gravity = Gravity.CENTER_VERTICAL
         if (attrs != null) {
-            val attributes = context.theme.obtainStyledAttributes(attrs, R.styleable.BubbleTabBar, 0, 0)
+            val attributes =
+                context.theme.obtainStyledAttributes(attrs, R.styleable.BubbleTabBar, 0, 0)
             try {
-                val menuResource = attributes.getResourceId(R.styleable.BubbleTabBar_bubbletab_menuResource, -1)
-                bubble_selected_color =
-                    attributes.getColor(R.styleable.BubbleTabBar_bubbletab_selected_color, Color.DKGRAY)
-                bubble_unselected_color =
-                    attributes.getColor(R.styleable.BubbleTabBar_bubbletab_unselected_color, Color.GRAY)
-                icon = attributes.getResourceId(R.styleable.BubbleTabBar_bubbletab_icon, 0)
-                text = attributes.getString(R.styleable.BubbleTabBar_bubbletab_text) ?: ""
+                val menuResource =
+                    attributes.getResourceId(R.styleable.BubbleTabBar_bubbletab_menuResource, -1)
+                disabled_icon_colorParam = attributes.getColor(
+                    R.styleable.BubbleTabBar_bubbletab_disabled_icon_color,
+                    Color.GRAY
+                )
+                custom_fontParam =
+                    attributes.getString(R.styleable.BubbleTabBar_bubbletab_custon_font) ?: ""
+                horizontal_paddingParam = attributes.getDimension(
+                    R.styleable.BubbleTabBar_bubbletab_horizontal_padding,
+                    resources.getDimension(R.dimen.bubble_horizontal_padding)
+                )
+                vertical_paddingParam = attributes.getDimension(
+                    R.styleable.BubbleTabBar_bubbletab_vertical_padding,
+                    resources.getDimension(R.dimen.bubble_vertical_padding)
+                )
+                icon_sizeParam = attributes.getDimension(
+                    R.styleable.BubbleTabBar_bubbletab_icon_size,
+                    resources.getDimension(R.dimen.bubble_icon_size)
+                )
+                title_sizeParam = attributes.getDimension(
+                    R.styleable.BubbleTabBar_bubbletab_title_size,
+                    resources.getDimension(R.dimen.bubble_icon_size)
+                )
                 if (menuResource >= 0) {
                     setMenuResource(menuResource)
                 }
@@ -71,6 +93,7 @@ class BubbleTabBar : LinearLayoutCompat {
         }
     }
 
+
     private var oldBubble: Bubble? = null
 
     @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
@@ -79,6 +102,18 @@ class BubbleTabBar : LinearLayoutCompat {
         removeAllViews()
         Log.e("menu ", "-->" + menu.size)
         menu.forEach { it ->
+            if (it.id == null) {
+                throw ExceptionInInitializerError("Id is not added in menu item")
+                return@forEach
+            }
+            it.apply {
+                it.horizontal_padding = horizontal_paddingParam
+                it.vertical_padding = vertical_paddingParam
+                it.icon_size = icon_sizeParam
+                it.custom_font = custom_fontParam
+                it.disabled_icon_color = disabled_icon_colorParam
+                it.title_size = title_sizeParam
+            }
             addView(Bubble(context, it).apply {
                 if (it.checked) {
                     this.isSelected = true
@@ -91,6 +126,9 @@ class BubbleTabBar : LinearLayoutCompat {
                         oldBubble!!.isSelected = false
                     }
                     oldBubble = it as Bubble
+                    if (onBubbleClickListner != null) {
+                        onBubbleClickListner!!.onBubbleClick(it.id)
+                    }
                 }
             })
 

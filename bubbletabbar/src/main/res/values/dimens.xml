@@ -3,4 +3,5 @@
     <dimen name="bubble_horizontal_padding">15dp</dimen>
     <dimen name="bubble_vertical_padding">10dp</dimen>
     <dimen name="bubble_icon_size">20dp</dimen>
+    <dimen name="bubble_title_size">12dp</dimen>
 </resources>

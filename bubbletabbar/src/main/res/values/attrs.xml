@@ -2,10 +2,12 @@
 <resources>
     <declare-styleable name="BubbleTabBar">
         <attr name="bubbletab_menuResource" format="reference"/>
-        <attr name="bubbletab_selected_color" format="color"/>
-        <attr name="bubbletab_unselected_color" format="color"/>
-        <attr name="bubbletab_icon" format="integer"/>
-        <attr name="bubbletab_text" format="string"/>
+        <attr name="bubbletab_disabled_icon_color" format="color" />
+        <attr name="bubbletab_custon_font" format="string" />
+        <attr name="bubbletab_horizontal_padding" format="dimension" />
+        <attr name="bubbletab_vertical_padding" format="dimension" />
+        <attr name="bubbletab_icon_size" format="dimension" />
+        <attr name="bubbletab_title_size" format="dimension" />
     </declare-styleable>
 
     <declare-styleable name="Bubble">

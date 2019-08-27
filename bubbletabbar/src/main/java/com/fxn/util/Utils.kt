@@ -1,20 +1,22 @@
-package com.ismaeldivita.chipnavigation.util
+package com.fxn.util
 
 import android.animation.Animator
 import android.animation.StateListAnimator
 import android.animation.ValueAnimator
 import android.annotation.SuppressLint
+import android.content.Context
 import android.graphics.Color
-import android.graphics.drawable.ColorDrawable
+import android.graphics.Rect
 import android.graphics.drawable.GradientDrawable
-import android.graphics.drawable.StateListDrawable
-import android.os.Build
+import android.util.TypedValue
 import android.view.View
-import android.view.ViewGroup
+import android.view.animation.AccelerateDecelerateInterpolator
 import android.widget.ImageView
 import androidx.annotation.ColorInt
+import androidx.appcompat.widget.AppCompatTextView
 import androidx.appcompat.widget.LinearLayoutCompat
 import androidx.vectordrawable.graphics.drawable.ArgbEvaluator
+
 
 const val ICON_STATE_ANIMATOR_DURATION: Long = 350
 
@@ -53,34 +55,78 @@ internal fun ImageView.setColorStateListAnimator(
 }
 
 
-internal fun LinearLayoutCompat.setCustomBackground(color: Int) {
+var DURATION = 450L
+var ALPHA = 0.15f
+internal fun AppCompatTextView.expand(container: LinearLayoutCompat, iconColor: Int) {
+    val bounds = Rect()
+    container.setCustomBackground(iconColor, ALPHA)
+    paint.apply {
+
+        getTextBounds(text.toString(), 0, text.length, bounds)
+        ValueAnimator.ofInt(0, bounds.width() + paddingLeft + 10).apply {
+            addUpdateListener {
+                if (it.animatedFraction == (0.0f)) {
+                    visibility = View.INVISIBLE
+                }
+                layoutParams.apply {
+                    width = it.animatedValue as Int
+                }
+
+                if (it.animatedFraction == (1.0f)) {
+                    visibility = View.VISIBLE
+                }
+                requestLayout()
+            }
+
+            duration = DURATION
+        }.start()
+
+
+    }
+
+}
+
+
+internal fun AppCompatTextView.collapse(
+    container: LinearLayoutCompat,
+    iconColor: Int
+) {
+    animate().alpha(0f).setDuration(DURATION).apply {
+        setUpdateListener {
+            layoutParams.apply {
+                width = (width - (width * it.animatedFraction)).toInt()
+            }
+            if (it.animatedFraction == 1.0f) {
+                visibility = View.GONE
+                alpha = 1.0f
+            }
+            interpolator = AccelerateDecelerateInterpolator()
+            container.setCustomBackground(iconColor, ALPHA - (ALPHA * it.animatedFraction))
+            requestLayout()
+        }
+    }.start()
+
+}
+
+internal fun LinearLayoutCompat.setCustomBackground(color: Int, alpha: Float) {
     val containerBackground = GradientDrawable().apply {
         cornerRadius = 100f
         setTint(
             Color.argb(
-                (Color.alpha(color) * 0.15).toInt(),
+                (Color.alpha(color) * alpha).toInt(),
                 Color.red(color),
                 Color.green(color),
                 Color.blue(color)
             )
         )
     }
-
-    val states = StateListDrawable()
-    background = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-        states.addState(intArrayOf(android.R.attr.state_selected), containerBackground)
-        states.addState(intArrayOf(), ColorDrawable(Color.TRANSPARENT))
-        states
-        // foreground = unselected
-    } else {
-        states.addState(intArrayOf(android.R.attr.state_selected), containerBackground)
-        states.addState(intArrayOf(), ColorDrawable(Color.GRAY))
-        states
-    }
+    background = containerBackground
 }
 
-
-internal fun <T : ViewGroup.LayoutParams> View.updateLayoutParams(view: T.() -> Unit) {
-    val lp: T = (layoutParams as T).apply { view(this) }
-    layoutParams = lp
+fun spToPx(sp: Float, context: Context): Int {
+    return TypedValue.applyDimension(
+        TypedValue.COMPLEX_UNIT_SP,
+        sp,
+        context.resources.displayMetrics
+    ).toInt()
 }

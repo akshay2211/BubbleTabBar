@@ -2,51 +2,72 @@ package com.fxn
 
 import android.content.Context
 import android.graphics.Color
-import android.os.Handler
-import android.transition.ChangeBounds
-import android.transition.TransitionManager
+import android.graphics.Typeface
+import android.util.Log
 import android.view.Gravity
 import android.view.View
-import android.widget.LinearLayout
+import android.widget.FrameLayout
 import androidx.appcompat.widget.AppCompatImageView
 import androidx.appcompat.widget.AppCompatTextView
 import androidx.appcompat.widget.LinearLayoutCompat
-import com.fxn.bubbletabbar.R
-import com.ismaeldivita.chipnavigation.model.MenuItem
-import com.ismaeldivita.chipnavigation.util.setColorStateListAnimator
-import com.ismaeldivita.chipnavigation.util.setCustomBackground
-import com.ismaeldivita.chipnavigation.util.updateLayoutParams
+import com.fxn.parser.MenuItem
+import com.fxn.util.collapse
+import com.fxn.util.expand
+import com.fxn.util.setColorStateListAnimator
 
 
-class Bubble(context: Context, item: MenuItem) : LinearLayoutCompat(context) {
+class Bubble(context: Context, var item: MenuItem) : FrameLayout(context) {
 
-    var icon = AppCompatImageView(context)
-    var title = AppCompatTextView(context)
+    private var icon = AppCompatImageView(context)
+    private var title = AppCompatTextView(context)
+    private var container = LinearLayoutCompat(context)
 
-    private val scale = resources.displayMetrics.density
-    private val dpAsPixels =
-        (resources.getDimension(R.dimen.bubble_horizontal_padding)).toInt()// * scale + 0.5f).toInt()
-    private val dpAsPixelsVertical =
-        (resources.getDimension(R.dimen.bubble_vertical_padding)).toInt()// * scale + 0.5f).toInt()
-    private val dpAsPixelsicons = (resources.getDimension(R.dimen.bubble_icon_size)).toInt() //* scale + 0.5f).toInt()
+    private val dpAsPixels = item.horizontal_padding.toInt()
+    private val dpAsPixelsVertical = item.vertical_padding.toInt()
+    private val dpAsPixelsIcons = item.icon_size.toInt()
 
     init {
-        layoutParams = LayoutParams(0, LayoutParams.WRAP_CONTENT, 1f)
+        layoutParams = LinearLayoutCompat.LayoutParams(
+            LayoutParams.WRAP_CONTENT,
+            LayoutParams.WRAP_CONTENT,
+            1f
+        ).apply {
+            gravity = Gravity.CENTER
+        }
 
-        setPadding(dpAsPixels, dpAsPixelsVertical, dpAsPixels, dpAsPixelsVertical)
 
+        container.apply {
+            layoutParams =
+                LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT).apply {
+                    setPadding(dpAsPixels, dpAsPixelsVertical, dpAsPixels, dpAsPixelsVertical)
+                    gravity = Gravity.CENTER
+                }
+            gravity = Gravity.CENTER
+            orientation = LinearLayoutCompat.HORIZONTAL
+        }
         icon.apply {
-            layoutParams = LayoutParams(dpAsPixelsicons, dpAsPixelsicons).apply {
-                // setMargins(dpAsPixels, 0, dpAsPixels, 0)
+            layoutParams = LayoutParams(dpAsPixelsIcons, dpAsPixelsIcons).apply {
             }
         }
         title.apply {
-            layoutParams = LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT).apply {
-                setPadding(dpAsPixelsVertical, 0, 0, 0)
-            }
-            gravity = Gravity.CENTER
+            layoutParams =
+                LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT).apply {
+                    setPadding(dpAsPixelsVertical, 0, 0, 0)
+                    gravity = Gravity.CENTER_VERTICAL
+                }
+
             maxLines = 1
+            textSize = item.title_size / resources.displayMetrics.scaledDensity
             visibility = View.GONE
+            if (item.custom_font.isNotEmpty()) {
+                var tf: Typeface? = null
+                try {
+                    tf = Typeface.createFromAsset(context.assets, item.custom_font)
+                    typeface = tf
+                } catch (e: Exception) {
+                    Log.e("BubbleTabBar", "Could not get typeface: " + e.message)
+                }
+            }
         }
         id = item.id
         isEnabled = item.enabled
@@ -64,10 +85,11 @@ class Bubble(context: Context, item: MenuItem) : LinearLayoutCompat(context) {
             setOnClickListener(null)
         }
 
-        addView(icon)
-        addView(title)
-        setCustomBackground(item.iconColor)
+        container.addView(icon)
+        container.addView(title)
+        addView(container)
     }
+
 
     override fun setEnabled(enabled: Boolean) {
         super.setEnabled(enabled)
@@ -81,26 +103,9 @@ class Bubble(context: Context, item: MenuItem) : LinearLayoutCompat(context) {
         super.setSelected(selected)
 
         if (selected) {
-            val first = ChangeBounds()
-            first.duration = 4000L
-            first.addTarget(this@Bubble)
-            TransitionManager.beginDelayedTransition(this@Bubble, first)
-            updateLayoutParams<LinearLayout.LayoutParams> {
-                width = LayoutParams.WRAP_CONTENT
-                weight = 0F
-            }
-            title.visibility = View.VISIBLE
-            var scalex = title.width
-            Handler().postDelayed({
-                title.visibility = View.VISIBLE
-            }, 250L)
-
+            title.expand(container, item.iconColor)
         } else {
-            updateLayoutParams<LayoutParams> {
-                width = 0
-                weight = 1F
-            }
-            title.visibility = View.GONE
+            title.collapse(container, item.iconColor)
         }
     }
 

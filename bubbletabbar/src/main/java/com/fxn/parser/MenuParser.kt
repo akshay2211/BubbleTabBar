@@ -1,4 +1,4 @@
-package com.ismaeldivita.chipnavigation.model
+package com.fxn.parser
 
 import android.annotation.SuppressLint
 import android.content.Context
