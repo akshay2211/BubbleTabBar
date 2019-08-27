@@ -64,10 +64,10 @@ inflate menu list
             
 ```
 
-add onclick listner 
+add onclick listener 
 
 ```kotlin
-   bubbleTabBar.addBubbLeListner(object : OnBubbleClickListner {
+   bubbleTabBar.addBubbLeListener(object : OnBubbleClickListener{
                override fun onBubbleClick(id: Int) {
                    when (id) {
                        R.id.home -> {}
@@ -102,7 +102,7 @@ or Maven:
 or ivy:
 ```xml
         <dependency org='com.fxn769' name='bubbletabbar' rev='1.0.0'>
-          <artifact name='pix' ext='pom' ></artifact>
+          <artifact name='bubbletabbar' ext='pom' ></artifact>
         </dependency>
 ```
 
