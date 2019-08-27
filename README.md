@@ -5,6 +5,8 @@
 
 BubbleTabBar is bottom navigation bar with customizable bubble like tabs 
 
+[ ![Download](https://api.bintray.com/packages/fxn769/android_projects/BubbleTabBar/images/download.svg?version=1.0.0) ](https://bintray.com/fxn769/android_projects/BubbleTabBar/1.0.0/link)
+
 ![](media/animation.gif)
 
 ## Usage
