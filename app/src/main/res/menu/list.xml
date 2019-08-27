@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android"
->
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
             android:id="@+id/home"
@@ -10,11 +9,20 @@
             android:iconTint="@color/home"/>
 
     <item
-            android:id="@+id/activity"
+            android:id="@+id/log"
             android:icon="@drawable/ic_clock"
             android:title="Logger"
             android:iconTint="@color/logger"/>
+    <item
+            android:id="@+id/doc"
+            android:icon="@drawable/ic_folder"
+            android:iconTint="@color/documents"
+            android:title="Documents" />
 
-
+    <item
+            android:id="@+id/setting"
+            android:icon="@drawable/ic_android_black_24dp_rotated"
+            android:iconTint="@color/settings"
+            android:title="Settings" />
 
 </menu>

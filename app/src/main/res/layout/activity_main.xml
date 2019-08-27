@@ -10,12 +10,22 @@
 
 
     <com.fxn.BubbleTabBar
+            android:id="@+id/bubbleTabBar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:background="#FFF"
             android:elevation="16dp"
+            android:paddingLeft="10dp"
+            android:paddingTop="5dp"
+            android:paddingRight="10dp"
+            android:paddingBottom="5dp"
             android:orientation="horizontal"
             app:layout_constraintBottom_toBottomOf="parent"
             app:bubbletab_menuResource="@menu/list"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            app:bubbletab_disabled_icon_color="@color/colorPrimaryDark"
+            app:bubbletab_horizontal_padding="20dp"
+            app:bubbletab_icon_size="20dp"
+            app:bubbletab_title_size="16sp"
+            app:bubbletab_vertical_padding="10dp">
     </com.fxn.BubbleTabBar>
 </androidx.constraintlayout.widget.ConstraintLayout>
