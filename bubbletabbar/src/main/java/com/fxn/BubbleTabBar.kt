@@ -102,9 +102,8 @@ class BubbleTabBar : LinearLayoutCompat {
         removeAllViews()
         Log.e("menu ", "-->" + menu.size)
         menu.forEach { it ->
-            if (it.id == null) {
+            if (it.id == 0) {
                 throw ExceptionInInitializerError("Id is not added in menu item")
-                return@forEach
             }
             it.apply {
                 it.horizontal_padding = horizontal_paddingParam

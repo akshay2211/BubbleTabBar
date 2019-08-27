@@ -60,10 +60,8 @@ class Bubble(context: Context, var item: MenuItem) : FrameLayout(context) {
             textSize = item.title_size / resources.displayMetrics.scaledDensity
             visibility = View.GONE
             if (item.custom_font.isNotEmpty()) {
-                var tf: Typeface? = null
                 try {
-                    tf = Typeface.createFromAsset(context.assets, item.custom_font)
-                    typeface = tf
+                    typeface = Typeface.createFromAsset(context.assets, item.custom_font)
                 } catch (e: Exception) {
                     Log.e("BubbleTabBar", "Could not get typeface: " + e.message)
                 }
