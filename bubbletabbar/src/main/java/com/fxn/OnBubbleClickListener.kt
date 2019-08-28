@@ -1,6 +1,6 @@
 package com.fxn
 
 
-interface OnBubbleClickListner {
+interface OnBubbleClickListener {
     fun onBubbleClick(id: Int)
 }

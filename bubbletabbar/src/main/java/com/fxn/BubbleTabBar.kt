@@ -12,7 +12,7 @@ import com.fxn.bubbletabbar.R
 import com.fxn.parser.MenuParser
 
 class BubbleTabBar : LinearLayoutCompat {
-    private var onBubbleClickListner: OnBubbleClickListner? = null
+    private var onBubbleClickListener: OnBubbleClickListener? = null
     private var disabled_icon_colorParam: Int = Color.GRAY
     private var horizontal_paddingParam: Float = 0F
     private var vertical_paddingParam: Float = 0F
@@ -44,8 +44,8 @@ class BubbleTabBar : LinearLayoutCompat {
         init(context, attrs)
     }
 
-    fun addBubbLeListner(onBubbleClickListner: OnBubbleClickListner) {
-        this.onBubbleClickListner = onBubbleClickListner
+    fun addBubbleListener(onBubbleClickListener: OnBubbleClickListener) {
+        this.onBubbleClickListener = onBubbleClickListener
     }
 
     private fun init(
@@ -125,8 +125,8 @@ class BubbleTabBar : LinearLayoutCompat {
                         oldBubble!!.isSelected = false
                     }
                     oldBubble = it as Bubble
-                    if (onBubbleClickListner != null) {
-                        onBubbleClickListner!!.onBubbleClick(it.id)
+                    if (onBubbleClickListener != null) {
+                        onBubbleClickListener!!.onBubbleClick(it.id)
                     }
                 }
             })
