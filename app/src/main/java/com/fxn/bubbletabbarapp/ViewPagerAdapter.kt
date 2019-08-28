@@ -23,7 +23,7 @@ class ViewPagerAdapter(supportFragmentManager: FragmentManager) :
     }
 
     class Child : Fragment() {
-        private var param1: String = ""
+        private var param1: String? = ""
 
         override fun onCreate(savedInstanceState: Bundle?) {
             super.onCreate(savedInstanceState)

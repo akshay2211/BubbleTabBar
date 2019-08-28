@@ -45,7 +45,7 @@ class MainActivity : AppCompatActivity() {
 
     }
 
-    fun getColors(): IntArray {
+    private fun getColors(): IntArray {
         return intArrayOf(
             ContextCompat.getColor(this, R.color.home),
             ContextCompat.getColor(this, R.color.logger),
