@@ -73,7 +73,7 @@ setup viewpager to BubbleTabBar
 ```
 
 ## Credits
-    thanks to [Ariana](https://github.com/akshay2211/Ariana) for transition in sample
+Thanks to [Ariana](https://github.com/akshay2211/Ariana) for transition in sample
 
 
 ## Download
