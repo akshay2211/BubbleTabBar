@@ -1,6 +1,3 @@
-
-
-
 ![](media/animation.gif)
 
 # BubbleTabBar
@@ -18,12 +15,7 @@ BubbleTabBar is bottom navigation bar with customizable bubble like tabs
                android:layout_height="wrap_content"
                android:background="#FFF"
                android:elevation="16dp"
-               android:paddingLeft="10dp"
-               android:paddingTop="5dp"
-               android:paddingRight="10dp"
-               android:paddingBottom="5dp"
-               android:orientation="horizontal"
-               app:layout_constraintBottom_toBottomOf="parent"
+               android:padding="7dp"
                app:bubbletab_menuResource="@menu/list"
                app:bubbletab_disabled_icon_color="@color/colorPrimaryDark"
                app:bubbletab_horizontal_padding="20dp"
@@ -38,9 +30,7 @@ or just use
                android:id="@+id/bubbleTabBar"
                android:layout_width="match_parent"
                android:layout_height="wrap_content"
-               android:padding="5dp"
-               android:orientation="horizontal"
-               app:layout_constraintBottom_toBottomOf="parent"
+               android:padding="7dp"
                app:bubbletab_menuResource="@menu/list">
        </com.fxn.BubbleTabBar>
 ```
@@ -69,12 +59,7 @@ add onclick listener
 ```kotlin
    bubbleTabBar.addBubbLeListener(object : OnBubbleClickListener{
                override fun onBubbleClick(id: Int) {
-                   when (id) {
-                       R.id.home -> {}
-                       R.id.log -> {}
-                       R.id.doc -> {}
-                       R.id.setting -> {} 
-                   }
+                   
                }
            })
 ```
@@ -86,6 +71,10 @@ setup viewpager to BubbleTabBar
    bubbleTabBar.setupBubbleTabBar(viewpager)
    
 ```
+
+## Credits
+    thanks to [Ariana](https://github.com/akshay2211/Ariana) for transition in sample
+
 
 ## Download
 
