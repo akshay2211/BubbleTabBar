@@ -8,6 +8,7 @@ import android.util.Log
 import android.view.Gravity
 import androidx.annotation.RequiresApi
 import androidx.appcompat.widget.LinearLayoutCompat
+import androidx.viewpager.widget.ViewPager
 import com.fxn.bubbletabbar.R
 import com.fxn.parser.MenuParser
 
@@ -46,6 +47,35 @@ class BubbleTabBar : LinearLayoutCompat {
 
     fun addBubbleListener(onBubbleClickListener: OnBubbleClickListener) {
         this.onBubbleClickListener = onBubbleClickListener
+    }
+
+    fun setupBubbleTabBar(viewPager: ViewPager) {
+        viewPager.addOnPageChangeListener(object : ViewPager.OnPageChangeListener {
+
+            override fun onPageScrollStateChanged(state: Int) {
+            }
+
+            override fun onPageScrolled(
+                position: Int,
+                positionOffset: Float,
+                positionOffsetPixels: Int
+            ) {
+            }
+
+            override fun onPageSelected(position: Int) {
+                var it = (this@BubbleTabBar.getChildAt(position) as Bubble)
+
+                var b = it.id
+                if (oldBubble != null && oldBubble!!.id != b) {
+                    it.isSelected = !it.isSelected
+                    oldBubble!!.isSelected = false
+                }
+                oldBubble = it
+                if (onBubbleClickListener != null) {
+                    onBubbleClickListener!!.onBubbleClick(it.id)
+                }
+            }
+        })
     }
 
     private fun init(
