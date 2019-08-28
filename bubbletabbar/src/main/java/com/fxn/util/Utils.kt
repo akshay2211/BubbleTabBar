@@ -10,7 +10,7 @@ import android.graphics.Rect
 import android.graphics.drawable.GradientDrawable
 import android.util.TypedValue
 import android.view.View
-import android.view.animation.AccelerateDecelerateInterpolator
+import android.view.animation.LinearInterpolator
 import android.widget.ImageView
 import androidx.annotation.ColorInt
 import androidx.appcompat.widget.AppCompatTextView
@@ -55,7 +55,7 @@ internal fun ImageView.setColorStateListAnimator(
 }
 
 
-var DURATION = 450L
+var DURATION = 350L
 var ALPHA = 0.15f
 internal fun AppCompatTextView.expand(container: LinearLayoutCompat, iconColor: Int) {
     val bounds = Rect()
@@ -77,6 +77,7 @@ internal fun AppCompatTextView.expand(container: LinearLayoutCompat, iconColor: 
                 }
                 requestLayout()
             }
+            interpolator = LinearInterpolator()
 
             duration = DURATION
         }.start()
@@ -91,7 +92,7 @@ internal fun AppCompatTextView.collapse(
     container: LinearLayoutCompat,
     iconColor: Int
 ) {
-    animate().alpha(0f).setDuration(DURATION).apply {
+    animate().alpha(0f).apply {
         setUpdateListener {
             layoutParams.apply {
                 width = (width - (width * it.animatedFraction)).toInt()
@@ -100,7 +101,8 @@ internal fun AppCompatTextView.collapse(
                 visibility = View.GONE
                 alpha = 1.0f
             }
-            interpolator = AccelerateDecelerateInterpolator()
+            interpolator = LinearInterpolator()
+            duration = DURATION
             container.setCustomBackground(iconColor, ALPHA - (ALPHA * it.animatedFraction))
             requestLayout()
         }
