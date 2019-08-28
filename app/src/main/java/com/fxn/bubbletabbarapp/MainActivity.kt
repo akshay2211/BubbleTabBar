@@ -1,6 +1,8 @@
 package com.fxn.bubbletabbarapp
 
 import android.os.Bundle
+import android.util.DisplayMetrics
+import android.util.Log
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
@@ -14,6 +16,13 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        val displayMetrics = DisplayMetrics()
+        windowManager.defaultDisplay.getMetrics(displayMetrics)
+        val height = displayMetrics.heightPixels
+        val width = displayMetrics.widthPixels
+        Log.e("height", "-> " + height)
+        Log.e("width", "-> " + width)
         window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_FULLSCREEN
 
         bubbleTabBar.addBubbleListener(object : OnBubbleClickListener {
@@ -26,6 +35,7 @@ class MainActivity : AppCompatActivity() {
                 }
             }
         })
+        bubbleTabBar.setupBubbleTabBar(viewpager)
         viewpager.setDurationScroll(1000)
         viewpager.adapter = ViewPagerAdapter(supportFragmentManager).apply {
             list = ArrayList<String>().apply {
