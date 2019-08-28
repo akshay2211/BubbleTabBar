@@ -37,19 +37,18 @@ or just use
 inflate menu list
 ```xml
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/home"
+        android:icon="@drawable/ic_grid"
+        android:title="Home"
+        android:checked="true"
+        android:iconTint="@color/home"/>
 
     <item
-            android:id="@+id/home"
-            android:icon="@drawable/ic_grid"
-            android:title="Home"
-            android:checked="true"
-            android:iconTint="@color/home"/>
-
-    <item
-            android:id="@+id/log"
-            android:icon="@drawable/ic_clock"
-            android:title="Logger"
-            android:iconTint="@color/logger"/>
+        android:id="@+id/log"
+        android:icon="@drawable/ic_clock"
+        android:title="Logger"
+        android:iconTint="@color/logger"/>
 </menu>
             
 ```
@@ -78,7 +77,7 @@ Thanks to [Ariana](https://github.com/akshay2211/Ariana) for transition in sampl
 
 ## Download
 
-[ ![Download](https://api.bintray.com/packages/fxn769/android_projects/BubbleTabBar/images/download.svg?version=1.0.0) ](https://bintray.com/fxn769/android_projects/BubbleTabBar/1.0.0/link)
+[ ![Download](https://api.bintray.com/packages/fxn769/android_projects/BubbleTabBar/images/download.svg?version=1.0.1) ](https://bintray.com/fxn769/android_projects/BubbleTabBar/1.0.1/link)
 
 
  include in app level build.gradle
@@ -88,21 +87,21 @@ Thanks to [Ariana](https://github.com/akshay2211/Ariana) for transition in sampl
         }
  ```
 ```groovy
-        implementation  'com.fxn769:bubbletabbar:1.0.0'
+        implementation  'com.fxn769:bubbletabbar:1.0.1'
 ```
 or Maven:
 ```xml
         <dependency>
-          <groupId>com.fxn769</groupId>
-          <artifactId>bubbletabbar</artifactId>
-          <version>1.0.0</version>
-          <type>pom</type>
+            <groupId>com.fxn769</groupId>
+            <artifactId>bubbletabbar</artifactId>
+            <version>1.0.1</version>
+            <type>pom</type>
         </dependency>
 ```
 or ivy:
 ```xml
-        <dependency org='com.fxn769' name='bubbletabbar' rev='1.0.0'>
-          <artifact name='bubbletabbar' ext='pom' ></artifact>
+        <dependency org='com.fxn769' name='bubbletabbar' rev='1.0.1'>
+            <artifact name='bubbletabbar' ext='pom' ></artifact>
         </dependency>
 ```
 
