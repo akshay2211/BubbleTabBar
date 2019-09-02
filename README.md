@@ -70,6 +70,8 @@ setup viewpager to BubbleTabBar
    bubbleTabBar.setupBubbleTabBar(viewpager)
    
 ```
+### Java Implementation
+for [Java-Implementation](https://github.com/akshay2211/BubbleTabBar/wiki/Java-Implementation)
 
 ## Credits
 Thanks to [Ariana](https://github.com/akshay2211/Ariana) for transition in sample
