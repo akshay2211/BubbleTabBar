@@ -2,6 +2,9 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/BubbleTabBa.iml" filepath="$PROJECT_DIR$/BubbleTabBa.iml" />
+      <module fileurl="file://$PROJECT_DIR$/app/BubbleTabBa-app.iml" filepath="$PROJECT_DIR$/app/BubbleTabBa-app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/bubbletabbar/BubbleTabBa-bubbletabbar.iml" filepath="$PROJECT_DIR$/bubbletabbar/BubbleTabBa-bubbletabbar.iml" />
       <module fileurl="file://$PROJECT_DIR$/BubbleTabBarApp.iml" filepath="$PROJECT_DIR$/BubbleTabBarApp.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/bubbletabbar/bubbletabbar.iml" filepath="$PROJECT_DIR$/bubbletabbar/bubbletabbar.iml" />
