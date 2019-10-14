@@ -76,7 +76,7 @@ class Bubble(context: Context, var item: MenuItem) : FrameLayout(context) {
         if (isEnabled) {
             icon.setColorStateListAnimator(
                 color = item.iconColor,
-                unselectedColor = Color.parseColor("#1b1b1b")
+                unselectedColor = item.disabled_icon_color
             )
         } else {
             icon.setColorFilter(Color.GRAY)
