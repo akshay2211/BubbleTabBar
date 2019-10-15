@@ -63,19 +63,23 @@ class BubbleTabBar : LinearLayoutCompat {
             }
 
             override fun onPageSelected(position: Int) {
-                var it = (this@BubbleTabBar.getChildAt(position) as Bubble)
-
-                var b = it.id
-                if (oldBubble != null && oldBubble!!.id != b) {
-                    it.isSelected = !it.isSelected
-                    oldBubble!!.isSelected = false
-                }
-                oldBubble = it
-                if (onBubbleClickListener != null) {
-                    onBubbleClickListener!!.onBubbleClick(it.id)
-                }
+                setSelected(position)
             }
         })
+    }
+
+    fun setSelected(position: Int, callListener: Boolean = true) {
+        var it = (this@BubbleTabBar.getChildAt(position) as Bubble)
+
+        var b = it.id
+        if (oldBubble != null && oldBubble!!.id != b) {
+            it.isSelected = !it.isSelected
+            oldBubble!!.isSelected = false
+        }
+        oldBubble = it
+        if (onBubbleClickListener != null && callListener) {
+            onBubbleClickListener!!.onBubbleClick(it.id)
+        }
     }
 
     private fun init(
