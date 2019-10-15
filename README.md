@@ -92,20 +92,20 @@ Similar library [BubbleTabBar](https://github.com/Cuberto/bubble-icon-tabbar) by
         }
  ```
 ```groovy
-        implementation  'com.fxn769:bubbletabbar:1.0.1'
+        implementation  'com.fxn769:bubbletabbar:1.0.3'
 ```
 or Maven:
 ```xml
         <dependency>
             <groupId>com.fxn769</groupId>
             <artifactId>bubbletabbar</artifactId>
-            <version>1.0.1</version>
+            <version>1.0.3</version>
             <type>pom</type>
         </dependency>
 ```
 or ivy:
 ```xml
-        <dependency org='com.fxn769' name='bubbletabbar' rev='1.0.1'>
+        <dependency org='com.fxn769' name='bubbletabbar' rev='1.0.3'>
             <artifact name='bubbletabbar' ext='pom' ></artifact>
         </dependency>
 ```
