@@ -2,7 +2,11 @@
 
 # BubbleTabBar
 
-BubbleTabBar is bottom navigation bar with customizable bubble like tabs 
+BubbleTabBar is bottom navigation bar with customizable bubble like tabs
+
+[![](https://img.shields.io/badge/Android%20Arsenal-BubbleTabBar-blue.svg?style=flat-square)](https://android-arsenal.com/details/1/7841)
+[![](https://jitpack.io/v/akshay2211/PixImagePicker.svg?style=flat-square)](https://jitpack.io/#akshay2211/BubbleTabBar)
+[![](https://img.shields.io/badge/API-16%2B-orange.svg?style=flat-square)](https://android-arsenal.com/api?level=21)
 
 ![](media/media.gif)
 
@@ -17,10 +21,12 @@ BubbleTabBar is bottom navigation bar with customizable bubble like tabs
                android:elevation="16dp"
                android:padding="7dp"
                app:bubbletab_menuResource="@menu/list"
+               app:bubbletab_custon_font="@font/opensans"
                app:bubbletab_disabled_icon_color="@color/colorPrimaryDark"
                app:bubbletab_horizontal_padding="20dp"
                app:bubbletab_icon_size="20dp"
                app:bubbletab_title_size="16sp"
+               app:bubbletab_icon_padding="5sp"
                app:bubbletab_vertical_padding="10dp">
        </com.fxn.BubbleTabBar>
 ```
@@ -92,20 +98,20 @@ Similar library [BubbleTabBar](https://github.com/Cuberto/bubble-icon-tabbar) by
         }
  ```
 ```groovy
-        implementation  'com.fxn769:bubbletabbar:1.0.3'
+        implementation  'com.fxn769:bubbletabbar:1.0.4'
 ```
 or Maven:
 ```xml
         <dependency>
             <groupId>com.fxn769</groupId>
             <artifactId>bubbletabbar</artifactId>
-            <version>1.0.3</version>
+            <version>1.0.4</version>
             <type>pom</type>
         </dependency>
 ```
 or ivy:
 ```xml
-        <dependency org='com.fxn769' name='bubbletabbar' rev='1.0.3'>
+        <dependency org='com.fxn769' name='bubbletabbar' rev='1.0.4'>
             <artifact name='bubbletabbar' ext='pom' ></artifact>
         </dependency>
 ```
