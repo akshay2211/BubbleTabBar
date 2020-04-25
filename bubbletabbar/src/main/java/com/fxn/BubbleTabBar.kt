@@ -3,7 +3,6 @@ package com.fxn
 import android.content.Context
 import android.graphics.Color
 import android.os.Build
-import android.os.Handler
 import android.util.AttributeSet
 import android.util.Log
 import android.view.Gravity
@@ -107,10 +106,6 @@ class BubbleTabBar : LinearLayoutCompat {
                     R.styleable.BubbleTabBar_bubbletab_icon_padding,
                     resources.getDimension(R.dimen.bubble_icon_padding)
                 )
-                Log.e("icon_paddingParam  test", "->  " + icon_paddingParam)
-                Handler().postDelayed({
-                    Log.e("icon_paddingParam  test", "->  " + icon_paddingParam)
-                }, 1000L)
                 horizontal_paddingParam = attributes.getDimension(
                     R.styleable.BubbleTabBar_bubbletab_horizontal_padding,
                     resources.getDimension(R.dimen.bubble_horizontal_padding)

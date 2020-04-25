@@ -53,7 +53,6 @@ class Bubble(context: Context, var item: MenuItem) : FrameLayout(context) {
             layoutParams =
                 LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT).apply {
                     setPadding(dpAsicon_padding, 0, 0, 0)
-                    Log.e("dpAsicon_padding", "-> $dpAsicon_padding")
                     gravity = Gravity.CENTER_VERTICAL
                     textAlignment = View.TEXT_ALIGNMENT_GRAVITY
                 }
