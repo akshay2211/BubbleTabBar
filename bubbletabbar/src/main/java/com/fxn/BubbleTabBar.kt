@@ -6,13 +6,13 @@ import android.os.Build
 import android.util.AttributeSet
 import android.util.Log
 import android.view.Gravity
+import android.widget.LinearLayout
 import androidx.annotation.RequiresApi
-import androidx.appcompat.widget.LinearLayoutCompat
 import androidx.viewpager.widget.ViewPager
 import com.fxn.bubbletabbar.R
 import com.fxn.parser.MenuParser
 
-class BubbleTabBar : LinearLayoutCompat {
+class BubbleTabBar : LinearLayout {
     private var onBubbleClickListener: OnBubbleClickListener? = null
     private var disabled_icon_colorParam: Int = Color.GRAY
     private var horizontal_paddingParam: Float = 0F

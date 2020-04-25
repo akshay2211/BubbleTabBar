@@ -1,6 +1,7 @@
 package com.fxn.util
 
 import android.animation.Animator
+import android.animation.ArgbEvaluator
 import android.animation.StateListAnimator
 import android.animation.ValueAnimator
 import android.annotation.SuppressLint
@@ -12,10 +13,9 @@ import android.util.TypedValue
 import android.view.View
 import android.view.animation.LinearInterpolator
 import android.widget.ImageView
+import android.widget.LinearLayout
+import android.widget.TextView
 import androidx.annotation.ColorInt
-import androidx.appcompat.widget.AppCompatTextView
-import androidx.appcompat.widget.LinearLayoutCompat
-import androidx.vectordrawable.graphics.drawable.ArgbEvaluator
 
 
 const val ICON_STATE_ANIMATOR_DURATION: Long = 350
@@ -57,7 +57,7 @@ internal fun ImageView.setColorStateListAnimator(
 
 var DURATION = 350L
 var ALPHA = 0.15f
-internal fun AppCompatTextView.expand(container: LinearLayoutCompat, iconColor: Int) {
+internal fun TextView.expand(container: LinearLayout, iconColor: Int) {
     val bounds = Rect()
     container.setCustomBackground(iconColor, ALPHA)
     paint.apply {
@@ -88,8 +88,8 @@ internal fun AppCompatTextView.expand(container: LinearLayoutCompat, iconColor: 
 }
 
 
-internal fun AppCompatTextView.collapse(
-    container: LinearLayoutCompat,
+internal fun TextView.collapse(
+    container: LinearLayout,
     iconColor: Int
 ) {
     animate().alpha(0f).apply {
@@ -110,7 +110,7 @@ internal fun AppCompatTextView.collapse(
 
 }
 
-internal fun LinearLayoutCompat.setCustomBackground(color: Int, alpha: Float) {
+internal fun LinearLayout.setCustomBackground(color: Int, alpha: Float) {
     val containerBackground = GradientDrawable().apply {
         cornerRadius = 100f
         setTint(

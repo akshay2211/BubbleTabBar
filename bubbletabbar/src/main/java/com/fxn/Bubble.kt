@@ -6,9 +6,9 @@ import android.util.Log
 import android.view.Gravity
 import android.view.View
 import android.widget.FrameLayout
-import androidx.appcompat.widget.AppCompatImageView
-import androidx.appcompat.widget.AppCompatTextView
-import androidx.appcompat.widget.LinearLayoutCompat
+import android.widget.ImageView
+import android.widget.LinearLayout
+import android.widget.TextView
 import androidx.core.content.res.ResourcesCompat
 import com.fxn.parser.MenuItem
 import com.fxn.util.collapse
@@ -17,9 +17,9 @@ import com.fxn.util.setColorStateListAnimator
 
 class Bubble(context: Context, var item: MenuItem) : FrameLayout(context) {
 
-    private var icon = AppCompatImageView(context)
-    private var title = AppCompatTextView(context)
-    private var container = LinearLayoutCompat(context)
+    private var icon = ImageView(context)
+    private var title = TextView(context)
+    private var container = LinearLayout(context)
 
     private val dpAsPixels = item.horizontal_padding.toInt()
     private val dpAsPixelsVertical = item.vertical_padding.toInt()
@@ -27,7 +27,7 @@ class Bubble(context: Context, var item: MenuItem) : FrameLayout(context) {
     private val dpAsicon_padding = item.icon_padding.toInt()
 
     init {
-        layoutParams = LinearLayoutCompat.LayoutParams(
+        layoutParams = LinearLayout.LayoutParams(
             LayoutParams.WRAP_CONTENT,
             LayoutParams.WRAP_CONTENT,
             1f
@@ -42,7 +42,7 @@ class Bubble(context: Context, var item: MenuItem) : FrameLayout(context) {
                     gravity = Gravity.CENTER
                 }
             gravity = Gravity.CENTER
-            orientation = LinearLayoutCompat.HORIZONTAL
+            orientation = LinearLayout.HORIZONTAL
         }
         icon.apply {
             layoutParams = LayoutParams(dpAsPixelsIcons, dpAsPixelsIcons).apply {
@@ -53,6 +53,7 @@ class Bubble(context: Context, var item: MenuItem) : FrameLayout(context) {
             layoutParams =
                 LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT).apply {
                     setPadding(dpAsicon_padding, 0, 0, 0)
+                    Log.e("dpAsicon_padding", "-> $dpAsicon_padding")
                     gravity = Gravity.CENTER_VERTICAL
                     textAlignment = View.TEXT_ALIGNMENT_GRAVITY
                 }
