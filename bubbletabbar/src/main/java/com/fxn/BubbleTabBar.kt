@@ -3,6 +3,7 @@ package com.fxn
 import android.content.Context
 import android.graphics.Color
 import android.os.Build
+import android.os.Handler
 import android.util.AttributeSet
 import android.util.Log
 import android.view.Gravity
@@ -16,10 +17,11 @@ class BubbleTabBar : LinearLayoutCompat {
     private var onBubbleClickListener: OnBubbleClickListener? = null
     private var disabled_icon_colorParam: Int = Color.GRAY
     private var horizontal_paddingParam: Float = 0F
+    private var icon_paddingParam: Float = 0F
     private var vertical_paddingParam: Float = 0F
     private var icon_sizeParam: Float = 0F
     private var title_sizeParam: Float = 0F
-    private var custom_fontParam: String = ""
+    private var custom_fontParam: Int = 0
 
     init {
         orientation = HORIZONTAL
@@ -99,7 +101,16 @@ class BubbleTabBar : LinearLayoutCompat {
                     Color.GRAY
                 )
                 custom_fontParam =
-                    attributes.getString(R.styleable.BubbleTabBar_bubbletab_custon_font) ?: ""
+                    attributes.getResourceId(R.styleable.BubbleTabBar_bubbletab_custon_font, 0)
+
+                icon_paddingParam = attributes.getDimension(
+                    R.styleable.BubbleTabBar_bubbletab_icon_padding,
+                    resources.getDimension(R.dimen.bubble_icon_padding)
+                )
+                Log.e("icon_paddingParam  test", "->  " + icon_paddingParam)
+                Handler().postDelayed({
+                    Log.e("icon_paddingParam  test", "->  " + icon_paddingParam)
+                }, 1000L)
                 horizontal_paddingParam = attributes.getDimension(
                     R.styleable.BubbleTabBar_bubbletab_horizontal_padding,
                     resources.getDimension(R.dimen.bubble_horizontal_padding)
@@ -143,6 +154,7 @@ class BubbleTabBar : LinearLayoutCompat {
                 it.horizontal_padding = horizontal_paddingParam
                 it.vertical_padding = vertical_paddingParam
                 it.icon_size = icon_sizeParam
+                it.icon_padding = icon_paddingParam
                 it.custom_font = custom_fontParam
                 it.disabled_icon_color = disabled_icon_colorParam
                 it.title_size = title_sizeParam

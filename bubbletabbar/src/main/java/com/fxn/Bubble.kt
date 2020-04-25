@@ -2,7 +2,6 @@ package com.fxn
 
 import android.content.Context
 import android.graphics.Color
-import android.graphics.Typeface
 import android.util.Log
 import android.view.Gravity
 import android.view.View
@@ -10,11 +9,11 @@ import android.widget.FrameLayout
 import androidx.appcompat.widget.AppCompatImageView
 import androidx.appcompat.widget.AppCompatTextView
 import androidx.appcompat.widget.LinearLayoutCompat
+import androidx.core.content.res.ResourcesCompat
 import com.fxn.parser.MenuItem
 import com.fxn.util.collapse
 import com.fxn.util.expand
 import com.fxn.util.setColorStateListAnimator
-
 
 class Bubble(context: Context, var item: MenuItem) : FrameLayout(context) {
 
@@ -25,6 +24,7 @@ class Bubble(context: Context, var item: MenuItem) : FrameLayout(context) {
     private val dpAsPixels = item.horizontal_padding.toInt()
     private val dpAsPixelsVertical = item.vertical_padding.toInt()
     private val dpAsPixelsIcons = item.icon_size.toInt()
+    private val dpAsicon_padding = item.icon_padding.toInt()
 
     init {
         layoutParams = LinearLayoutCompat.LayoutParams(
@@ -34,7 +34,6 @@ class Bubble(context: Context, var item: MenuItem) : FrameLayout(context) {
         ).apply {
             gravity = Gravity.CENTER
         }
-
 
         container.apply {
             layoutParams =
@@ -47,21 +46,24 @@ class Bubble(context: Context, var item: MenuItem) : FrameLayout(context) {
         }
         icon.apply {
             layoutParams = LayoutParams(dpAsPixelsIcons, dpAsPixelsIcons).apply {
+                gravity = Gravity.CENTER_VERTICAL
             }
         }
         title.apply {
             layoutParams =
                 LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT).apply {
-                    setPadding(dpAsPixelsVertical, 0, 0, 0)
+                    setPadding(dpAsicon_padding, 0, 0, 0)
+                    Log.e("dpAsicon_padding", "-> $dpAsicon_padding")
                     gravity = Gravity.CENTER_VERTICAL
+                    textAlignment = View.TEXT_ALIGNMENT_GRAVITY
                 }
 
             maxLines = 1
             textSize = item.title_size / resources.displayMetrics.scaledDensity
             visibility = View.GONE
-            if (item.custom_font.isNotEmpty()) {
+            if (item.custom_font != 0) {
                 try {
-                    typeface = Typeface.createFromAsset(context.assets, item.custom_font)
+                    typeface = ResourcesCompat.getFont(context, item.custom_font)
                 } catch (e: Exception) {
                     Log.e("BubbleTabBar", "Could not get typeface: " + e.message)
                 }
@@ -99,7 +101,6 @@ class Bubble(context: Context, var item: MenuItem) : FrameLayout(context) {
 
     override fun setSelected(selected: Boolean) {
         super.setSelected(selected)
-
         if (selected) {
             title.expand(container, item.iconColor)
         } else {

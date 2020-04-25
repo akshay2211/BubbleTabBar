@@ -3,6 +3,7 @@ package com.fxn.parser
 import android.graphics.Color
 import androidx.annotation.ColorInt
 import androidx.annotation.DrawableRes
+import androidx.annotation.FontRes
 
 data class MenuItem(
     val id: Int,
@@ -13,9 +14,11 @@ data class MenuItem(
     val checked: Boolean = false
 ) {
 
-    var custom_font: String = ""
+    @FontRes
+    var custom_font: Int = 0
     var horizontal_padding: Float = 0f
     var vertical_padding: Float = 0f
+    var icon_padding: Float = 0f
     var icon_size: Float = 0f
     var title_size: Float = 0f
     var disabled_icon_color: Int = Color.GRAY
