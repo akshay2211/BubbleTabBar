@@ -8,7 +8,7 @@ BubbleTabBar is bottom navigation bar with customizable bubble like tabs
 [![](https://jitpack.io/v/akshay2211/PixImagePicker.svg?style=flat-square)](https://jitpack.io/#akshay2211/BubbleTabBar)
 [![](https://img.shields.io/badge/API-16%2B-orange.svg?style=flat-square)](https://android-arsenal.com/api?level=21)
 
-![](media/media.gif)
+![](media/media-600.gif)
 
 ## Usage
  
