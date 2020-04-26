@@ -3,7 +3,7 @@
     <declare-styleable name="BubbleTabBar">
         <attr name="bubbletab_menuResource" format="reference"/>
         <attr name="bubbletab_disabled_icon_color" format="color" />
-        <attr name="bubbletab_custon_font" format="reference" />
+        <attr name="bubbletab_custom_font" format="reference" />
         <attr name="bubbletab_horizontal_padding" format="dimension" />
         <attr name="bubbletab_icon_padding" format="dimension" />
         <attr name="bubbletab_vertical_padding" format="dimension" />
