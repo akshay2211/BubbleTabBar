@@ -100,7 +100,7 @@ class BubbleTabBar : LinearLayout {
                     Color.GRAY
                 )
                 custom_fontParam =
-                    attributes.getResourceId(R.styleable.BubbleTabBar_bubbletab_custon_font, 0)
+                    attributes.getResourceId(R.styleable.BubbleTabBar_bubbletab_custom_font, 0)
 
                 icon_paddingParam = attributes.getDimension(
                     R.styleable.BubbleTabBar_bubbletab_icon_padding,
