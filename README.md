@@ -21,7 +21,7 @@ BubbleTabBar is bottom navigation bar with customizable bubble like tabs
                android:elevation="16dp"
                android:padding="7dp"
                app:bubbletab_menuResource="@menu/list"
-               app:bubbletab_custon_font="@font/opensans"
+               app:bubbletab_custom_font="@font/opensans"
                app:bubbletab_disabled_icon_color="@color/colorPrimaryDark"
                app:bubbletab_horizontal_padding="20dp"
                app:bubbletab_icon_size="20dp"
@@ -98,20 +98,20 @@ Similar library [BubbleTabBar](https://github.com/Cuberto/bubble-icon-tabbar) by
         }
  ```
 ```groovy
-        implementation  'com.fxn769:bubbletabbar:1.0.4'
+        implementation  'com.fxn769:bubbletabbar:1.0.5'
 ```
 or Maven:
 ```xml
         <dependency>
             <groupId>com.fxn769</groupId>
             <artifactId>bubbletabbar</artifactId>
-            <version>1.0.4</version>
+            <version>1.0.5</version>
             <type>pom</type>
         </dependency>
 ```
 or ivy:
 ```xml
-        <dependency org='com.fxn769' name='bubbletabbar' rev='1.0.4'>
+        <dependency org='com.fxn769' name='bubbletabbar' rev='1.0.5'>
             <artifact name='bubbletabbar' ext='pom' ></artifact>
         </dependency>
 ```
