@@ -25,7 +25,7 @@ class MainActivity : AppCompatActivity() {
         Log.e("width", "-> " + width)
         window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_FULLSCREEN
 
-        bubbleTabBar.addBubbleListener(object : OnBubbleClickListener {
+        /*bubbleTabBar.addBubbleListener(object : OnBubbleClickListener {
             override fun onBubbleClick(id: Int) {
                 when (id) {
                     R.id.home -> viewpager.currentItem = 0
@@ -34,7 +34,17 @@ class MainActivity : AppCompatActivity() {
                     R.id.setting -> viewpager.currentItem = 3
                 }
             }
-        })
+        })*/
+
+        bubbleTabBar.addBubbleListener { id ->
+            when (id) {
+                R.id.home -> viewpager.currentItem = 0
+                R.id.log -> viewpager.currentItem = 1
+                R.id.doc -> viewpager.currentItem = 2
+                R.id.setting -> viewpager.currentItem = 3
+            }
+        }
+
         bubbleTabBar.setupBubbleTabBar(viewpager)
         viewpager.setDurationScroll(1000)
         viewpager.adapter = ViewPagerAdapter(supportFragmentManager).apply {
