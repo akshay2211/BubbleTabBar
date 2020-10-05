@@ -6,9 +6,11 @@ import android.util.Log
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
+import androidx.navigation.fragment.NavHostFragment
 import com.fxn.OnBubbleClickListener
 import com.fxn.ariana.ArianaBackgroundListener
 import kotlinx.android.synthetic.main.activity_main.*
+import java.util.*
 
 
 class MainActivity : AppCompatActivity() {
@@ -24,6 +26,10 @@ class MainActivity : AppCompatActivity() {
         Log.e("height", "-> " + height)
         Log.e("width", "-> " + width)
         window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_FULLSCREEN
+        val navHostFragment =
+                supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
+        val navController = navHostFragment.navController
+        bubbleTabBar.setupWithNavController(navController)
 
         bubbleTabBar.addBubbleListener(object : OnBubbleClickListener {
             override fun onBubbleClick(id: Int) {
@@ -37,6 +43,8 @@ class MainActivity : AppCompatActivity() {
         })
         bubbleTabBar.setupBubbleTabBar(viewpager)
         viewpager.setDurationScroll(1000)
+        // bottom_nav.setupWithNavController(navController)
+
         viewpager.adapter = ViewPagerAdapter(supportFragmentManager).apply {
             list = ArrayList<String>().apply {
                 add("Home")
@@ -46,11 +54,11 @@ class MainActivity : AppCompatActivity() {
             }
         }
         viewpager.addOnPageChangeListener(
-            ArianaBackgroundListener(
-                getColors(),
-                iv,
-                viewpager
-            )
+                ArianaBackgroundListener(
+                        getColors(),
+                        iv,
+                        viewpager
+                )
         )
 
     }

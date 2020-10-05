@@ -8,11 +8,12 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
 import kotlinx.android.synthetic.main.fragment_child.view.*
+import java.util.*
 
 private const val ARG_PARAM1 = "param1"
 
 class ViewPagerAdapter(supportFragmentManager: FragmentManager) :
-    FragmentPagerAdapter(supportFragmentManager) {
+        FragmentPagerAdapter(supportFragmentManager, BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT) {
     var list = ArrayList<String>()
     override fun getItem(position: Int): Fragment {
         return Child.newInstance(list[position])

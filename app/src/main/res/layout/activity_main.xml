@@ -9,52 +9,83 @@
         tools:context=".MainActivity">
 
     <androidx.appcompat.widget.AppCompatImageView
-            android:id="@+id/iv"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            app:layout_constraintBottom_toTopOf="@id/bubbleTabBar"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+        android:id="@+id/iv"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent">
 
     </androidx.appcompat.widget.AppCompatImageView>
 
     <com.fxn.bubbletabbarapp.PresentationViewPager
             android:id="@+id/viewpager"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            app:layout_constraintBottom_toTopOf="@id/bubbleTabBar"
-            app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_height="match_parent"
+        app:layout_constraintBottom_toTopOf="@id/cardview"
+        app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
     </com.fxn.bubbletabbarapp.PresentationViewPager>
 
     <androidx.appcompat.widget.AppCompatTextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:padding="10dp"
-            android:text="BubbleTabBar"
-            android:textColor="#fff"
-            android:textSize="30dp"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintTop_toTopOf="parent"></androidx.appcompat.widget.AppCompatTextView>
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:padding="10dp"
+        android:text="BubbleTabBar"
+        android:textColor="#fff"
+        android:textSize="30sp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"></androidx.appcompat.widget.AppCompatTextView>
+
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/nav_host_fragment"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottom_nav"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:menu="@menu/list" />
 
 
-    <com.fxn.BubbleTabBar
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="60dp"
+        app:cardBackgroundColor="@android:color/white"
+        app:cardCornerRadius="8dp"
+        app:cardElevation="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toRightOf="parent">
+
+        <com.fxn.BubbleTabBar
+            android:layout_marginTop="18dp"
+            android:layout_marginBottom="18dp"
             android:id="@+id/bubbleTabBar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="#FFF"
-            android:elevation="16dp"
             android:padding="7dp"
-            app:layout_constraintBottom_toBottomOf="parent"
             app:bubbletab_menuResource="@menu/list"
+            app:bubbletab_custom_font="@font/josefinsansregular"
             app:bubbletab_disabled_icon_color="@color/colorPrimaryDark"
-            app:bubbletab_horizontal_padding="20dp"
-            app:bubbletab_icon_size="20dp"
-            app:bubbletab_title_size="16sp"
-            app:bubbletab_vertical_padding="10dp">
-    </com.fxn.BubbleTabBar>
+            app:bubbletab_horizontal_padding="18dp"
+            app:bubbletab_icon_padding="5sp"
+            app:bubbletab_icon_size="14dp"
+            app:bubbletab_title_size="14sp"
+            app:bubbletab_vertical_padding="10dp"></com.fxn.BubbleTabBar>
+    </androidx.cardview.widget.CardView>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
