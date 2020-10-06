@@ -8,9 +8,6 @@ import android.util.Log
 import android.view.Gravity
 import android.widget.LinearLayout
 import androidx.annotation.RequiresApi
-import androidx.navigation.NavController
-import androidx.viewpager.widget.ViewPager
-import androidx.viewpager2.widget.ViewPager2
 import com.fxn.bubbletabbar.R
 import com.fxn.parser.MenuParser
 
@@ -52,7 +49,7 @@ class BubbleTabBar : LinearLayout {
         this.onBubbleClickListener = onBubbleClickListener
     }
 
-    fun setupBubbleTabBar(viewPager: ViewPager) {
+   /* fun setupBubbleTabBar(viewPager: ViewPager) {
         viewPager.addOnPageChangeListener(object : ViewPager.OnPageChangeListener {
 
             override fun onPageScrollStateChanged(state: Int) {
@@ -78,7 +75,7 @@ class BubbleTabBar : LinearLayout {
     fun setupWithNavController(navController: NavController) {
         navController.addOnDestinationChangedListener { controller, destination, arguments -> }
 
-    }
+    }*/
 
     fun setSelected(position: Int, callListener: Boolean = true) {
         var it = (this@BubbleTabBar.getChildAt(position) as Bubble)
