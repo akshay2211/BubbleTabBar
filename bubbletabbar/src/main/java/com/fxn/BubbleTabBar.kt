@@ -6,11 +6,14 @@ import android.os.Build
 import android.util.AttributeSet
 import android.util.Log
 import android.view.Gravity
+import android.view.Menu
 import android.widget.LinearLayout
 import androidx.annotation.RequiresApi
+import androidx.navigation.NavController
 import androidx.viewpager.widget.ViewPager
 import com.fxn.bubbletabbar.R
 import com.fxn.parser.MenuParser
+import com.fxn.util.NavigationComponentHelper
 
 class BubbleTabBar : LinearLayout {
     private var onBubbleClickListener: OnBubbleClickListener? = null
@@ -81,6 +84,10 @@ class BubbleTabBar : LinearLayout {
         if (onBubbleClickListener != null && callListener) {
             onBubbleClickListener!!.onBubbleClick(it.id, position)
         }
+    }
+
+    fun setupWithNavController(menu: Menu, navController: NavController) {
+        NavigationComponentHelper.setupWithNavController(menu, this, navController)
     }
 
     private fun init(
