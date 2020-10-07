@@ -79,7 +79,7 @@ class BubbleTabBar : LinearLayout {
         }
         oldBubble = it
         if (onBubbleClickListener != null && callListener) {
-            onBubbleClickListener!!.onBubbleClick(it.id)
+            onBubbleClickListener!!.onBubbleClick(it.id, position)
         }
     }
 
@@ -141,7 +141,7 @@ class BubbleTabBar : LinearLayout {
         val menu = (MenuParser(context).parse(menuResource))
         removeAllViews()
         Log.e("menu ", "-->" + menu.size)
-        menu.forEach { it ->
+        menu.withIndex().forEach { (index, it) ->
             if (it.id == 0) {
                 throw ExceptionInInitializerError("Id is not added in menu item")
             }
@@ -167,7 +167,7 @@ class BubbleTabBar : LinearLayout {
                     }
                     oldBubble = it as Bubble
                     if (onBubbleClickListener != null) {
-                        onBubbleClickListener!!.onBubbleClick(it.id)
+                        onBubbleClickListener!!.onBubbleClick(it.id, index)
                     }
                 }
             })

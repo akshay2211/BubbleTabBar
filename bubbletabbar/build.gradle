@@ -30,6 +30,11 @@ dependencies {
     implementation "androidx.core:core-ktx:1.2.0"
     implementation 'androidx.viewpager:viewpager:1.0.0'
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+
+    //Navigation Architecture Component
+    def nav_version = "2.2.2"
+    implementation "androidx.navigation:navigation-fragment-ktx:$nav_version"
+    implementation "androidx.navigation:navigation-ui-ktx:$nav_version"
 }
 repositories {
     mavenCentral()
