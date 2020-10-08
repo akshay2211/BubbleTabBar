@@ -36,7 +36,8 @@ class MainActivity : AppCompatActivity() {
             }
         })*/
 
-        bubbleTabBar.addBubbleListener { id ->
+        // The second lambda parameter is not used here since it is the menu item index
+        bubbleTabBar.addBubbleListener { id, _ ->
             when (id) {
                 R.id.home -> viewpager.currentItem = 0
                 R.id.log -> viewpager.currentItem = 1
