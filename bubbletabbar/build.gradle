@@ -35,6 +35,10 @@ dependencies {
     def nav_version = "2.2.2"
     implementation "androidx.navigation:navigation-fragment-ktx:$nav_version"
     implementation "androidx.navigation:navigation-ui-ktx:$nav_version"
+
+    // ViewPager2
+    def viewpager2_version = "1.0.0"
+    implementation "androidx.viewpager2:viewpager2:$viewpager2_version"
 }
 repositories {
     mavenCentral()

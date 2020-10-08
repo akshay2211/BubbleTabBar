@@ -11,6 +11,7 @@ import android.widget.LinearLayout
 import androidx.annotation.RequiresApi
 import androidx.navigation.NavController
 import androidx.viewpager.widget.ViewPager
+import androidx.viewpager2.widget.ViewPager2
 import com.fxn.bubbletabbar.R
 import com.fxn.parser.MenuParser
 import com.fxn.util.NavigationComponentHelper
@@ -55,6 +56,26 @@ class BubbleTabBar : LinearLayout {
 
     fun setupBubbleTabBar(viewPager: ViewPager) {
         viewPager.addOnPageChangeListener(object : ViewPager.OnPageChangeListener {
+
+            override fun onPageScrollStateChanged(state: Int) {
+            }
+
+            override fun onPageScrolled(
+                position: Int,
+                positionOffset: Float,
+                positionOffsetPixels: Int
+            ) {
+            }
+
+            override fun onPageSelected(position: Int) {
+                setSelected(position)
+            }
+        })
+    }
+
+    // ViewPager2 Compatibility
+    fun setupBubbleTabBar(viewPager: ViewPager2) {
+        viewPager.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
 
             override fun onPageScrollStateChanged(state: Int) {
             }
