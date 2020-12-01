@@ -63,7 +63,7 @@ internal fun TextView.expand(container: LinearLayout, iconColor: Int) {
     paint.apply {
 
         getTextBounds(text.toString(), 0, text.length, bounds)
-        ValueAnimator.ofInt(0, bounds.width() + paddingLeft + 10).apply {
+        ValueAnimator.ofInt(0, bounds.width() + paddingStart + 10).apply {
             addUpdateListener {
                 if (it.animatedFraction == (0.0f)) {
                     visibility = View.INVISIBLE
