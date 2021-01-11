@@ -14,13 +14,13 @@ import com.fxn.parser.MenuParser
 
 class BubbleTabBar : LinearLayout {
     private var onBubbleClickListener: OnBubbleClickListener? = null
-    private var disabledIconColorparam: Int = Color.GRAY
-    private var horizontalPaddingparam: Float = 0F
-    private var iconPaddingparam: Float = 0F
-    private var verticalPaddingparam: Float = 0F
-    private var iconSizeparam: Float = 0F
-    private var titleSizeparam: Float = 0F
-    private var customFontparam: Int = 0
+    private var disabledIconColorParam: Int = Color.GRAY
+    private var horizontalPaddingParam: Float = 0F
+    private var iconPaddingParam: Float = 0F
+    private var verticalPaddingParam: Float = 0F
+    private var iconSizeParam: Float = 0F
+    private var titleSizeParam: Float = 0F
+    private var customFontParam: Int = 0
 
     init {
         orientation = HORIZONTAL
@@ -89,30 +89,30 @@ class BubbleTabBar : LinearLayout {
             try {
                 val menuResource =
                     attributes.getResourceId(R.styleable.BubbleTabBar_bubbletab_menuResource, -1)
-                disabledIconColorparam = attributes.getColor(
+                disabledIconColorParam = attributes.getColor(
                     R.styleable.BubbleTabBar_bubbletab_disabled_icon_color,
                     Color.GRAY
                 )
-                customFontparam =
+                customFontParam =
                     attributes.getResourceId(R.styleable.BubbleTabBar_bubbletab_custom_font, 0)
 
-                iconPaddingparam = attributes.getDimension(
+                iconPaddingParam = attributes.getDimension(
                     R.styleable.BubbleTabBar_bubbletab_icon_padding,
                     resources.getDimension(R.dimen.bubble_icon_padding)
                 )
-                horizontalPaddingparam = attributes.getDimension(
+                horizontalPaddingParam = attributes.getDimension(
                     R.styleable.BubbleTabBar_bubbletab_horizontal_padding,
                     resources.getDimension(R.dimen.bubble_horizontal_padding)
                 )
-                verticalPaddingparam = attributes.getDimension(
+                verticalPaddingParam = attributes.getDimension(
                     R.styleable.BubbleTabBar_bubbletab_vertical_padding,
                     resources.getDimension(R.dimen.bubble_vertical_padding)
                 )
-                iconSizeparam = attributes.getDimension(
+                iconSizeParam = attributes.getDimension(
                     R.styleable.BubbleTabBar_bubbletab_icon_size,
                     resources.getDimension(R.dimen.bubble_icon_size)
                 )
-                titleSizeparam = attributes.getDimension(
+                titleSizeParam = attributes.getDimension(
                     R.styleable.BubbleTabBar_bubbletab_title_size,
                     resources.getDimension(R.dimen.bubble_icon_size)
                 )
@@ -140,13 +140,13 @@ class BubbleTabBar : LinearLayout {
                 throw ExceptionInInitializerError("Id is not added in menu item")
             }
             it.apply {
-                it.horizontal_padding = horizontalPaddingparam
-                it.vertical_padding = verticalPaddingparam
-                it.icon_size = iconSizeparam
-                it.icon_padding = iconPaddingparam
-                it.custom_font = customFontparam
-                it.disabled_icon_color = disabledIconColorparam
-                it.title_size = titleSizeparam
+                it.horizontalPadding = horizontalPaddingParam
+                it.verticalPadding = verticalPaddingParam
+                it.iconSize = iconSizeParam
+                it.iconPadding = iconPaddingParam
+                it.customFont = customFontParam
+                it.disabledIconColor = disabledIconColorParam
+                it.titleSize = titleSizeParam
             }
             addView(Bubble(context, it).apply {
                 if (it.checked) {

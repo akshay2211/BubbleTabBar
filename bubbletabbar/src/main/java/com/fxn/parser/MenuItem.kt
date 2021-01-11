@@ -15,11 +15,11 @@ data class MenuItem(
 ) {
 
     @FontRes
-    var custom_font: Int = 0
-    var horizontal_padding: Float = 0f
-    var vertical_padding: Float = 0f
-    var icon_padding: Float = 0f
-    var icon_size: Float = 0f
-    var title_size: Float = 0f
-    var disabled_icon_color: Int = Color.GRAY
+    var customFont: Int = 0
+    var horizontalPadding: Float = 0f
+    var verticalPadding: Float = 0f
+    var iconPadding: Float = 0f
+    var iconSize: Float = 0f
+    var titleSize: Float = 0f
+    var disabledIconColor: Int = Color.GRAY
 }

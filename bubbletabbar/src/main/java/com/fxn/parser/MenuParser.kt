@@ -71,7 +71,7 @@ internal class MenuParser(private val context: Context) {
             icon = sAttr.getResourceId(R.styleable.Bubble_android_icon, 0),
             enabled = sAttr.getBoolean(R.styleable.Bubble_android_enabled, true),
             checked = sAttr.getBoolean(R.styleable.Bubble_android_checked, false),
-            iconColor = sAttr.getColor(R.styleable.Bubble_android_iconTint, Color.RED)
+            iconColor = sAttr.getColor(R.styleable.Bubble_android_color, Color.RED)
         )
 
         sAttr.recycle()

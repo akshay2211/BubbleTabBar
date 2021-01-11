@@ -17,6 +17,6 @@
         <attr name="android:icon"/>
         <attr name="android:enabled"/>
         <attr name="android:checked"/>
-        <attr name="android:iconTint" format="color"/>
+        <attr name="android:color" format="color" />
     </declare-styleable>
 </resources>
