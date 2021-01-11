@@ -5,11 +5,9 @@ import android.animation.ArgbEvaluator
 import android.animation.StateListAnimator
 import android.animation.ValueAnimator
 import android.annotation.SuppressLint
-import android.content.Context
 import android.graphics.Color
 import android.graphics.Rect
 import android.graphics.drawable.GradientDrawable
-import android.util.TypedValue
 import android.view.View
 import android.view.animation.LinearInterpolator
 import android.widget.ImageView
@@ -61,7 +59,6 @@ internal fun TextView.expand(container: LinearLayout, iconColor: Int) {
     val bounds = Rect()
     container.setCustomBackground(iconColor, ALPHA)
     paint.apply {
-
         getTextBounds(text.toString(), 0, text.length, bounds)
         ValueAnimator.ofInt(0, bounds.width() + paddingLeft + 10).apply {
             addUpdateListener {
@@ -81,10 +78,7 @@ internal fun TextView.expand(container: LinearLayout, iconColor: Int) {
 
             duration = DURATION
         }.start()
-
-
     }
-
 }
 
 
@@ -113,6 +107,7 @@ internal fun TextView.collapse(
 internal fun LinearLayout.setCustomBackground(color: Int, alpha: Float) {
     val containerBackground = GradientDrawable().apply {
         cornerRadius = 100f
+
         setTint(
             Color.argb(
                 (Color.alpha(color) * alpha).toInt(),
@@ -123,12 +118,4 @@ internal fun LinearLayout.setCustomBackground(color: Int, alpha: Float) {
         )
     }
     background = containerBackground
-}
-
-fun spToPx(sp: Float, context: Context): Int {
-    return TypedValue.applyDimension(
-        TypedValue.COMPLEX_UNIT_SP,
-        sp,
-        context.resources.displayMetrics
-    ).toInt()
 }
