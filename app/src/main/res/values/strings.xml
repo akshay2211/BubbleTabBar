@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">BubbleTabBarApp</string>
+    <string name="vp_integrations">ViewPager\nIntegration</string>
+    <string name="vp2_integrations">ViewPager2\nIntegration</string>
+    <string name="nc_integrations">NavigationController\nIntegration</string>
+    <!-- TODO: Remove or change this placeholder text -->
 </resources>

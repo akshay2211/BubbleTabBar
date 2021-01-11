@@ -1,4 +1,4 @@
-package com.fxn.bubbletabbarapp
+package com.fxn.bubbletabbarapp.utils
 
 import android.content.Context
 import android.util.AttributeSet
@@ -35,7 +35,7 @@ class PresentationViewPager : ViewPager {
 
     companion object {
 
-        val DEFAULT_SCROLL_DURATION = 250
-        val PRESENTATION_MODE_SCROLL_DURATION = 1000
+        const val DEFAULT_SCROLL_DURATION = 250
+        const val PRESENTATION_MODE_SCROLL_DURATION = 1000
     }
 }

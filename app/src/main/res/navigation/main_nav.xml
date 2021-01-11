@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        app:startDestination="@id/homeFragment">
+    <fragment
+            android:id="@+id/homeFragment"
+            android:name="com.fxn.bubbletabbarapp.ui.home.HomeFragment"
+            android:label="HomeFragment">
+        <action
+                android:id="@+id/action_homeFragment_to_viewPagerFragment"
+                app:destination="@id/viewPagerFragment" />
+        <action
+                android:id="@+id/action_homeFragment_to_viewPager2Fragment"
+                app:destination="@id/viewPager2Fragment" />
+        <action
+                android:id="@+id/action_homeFragment_to_navControllerFragment"
+                app:destination="@id/navControllerFragment" />
+
+    </fragment>
+    <fragment
+            android:id="@+id/viewPagerFragment"
+            android:name="com.fxn.bubbletabbarapp.ui.samples.ViewPagerFragment"
+            android:label="fragment_view_pager"
+            tools:layout="@layout/fragment_view_pager" />
+    <fragment
+            android:id="@+id/viewPager2Fragment"
+            android:name="com.fxn.bubbletabbarapp.ui.samples.ViewPager2Fragment"
+            android:label="ViewPager2Fragment" />
+    <fragment
+            android:id="@+id/navControllerFragment"
+            android:name="com.fxn.bubbletabbarapp.ui.samples.NavControllerFragment"
+            android:label="NavControllerFragment" />
+
+</navigation>
