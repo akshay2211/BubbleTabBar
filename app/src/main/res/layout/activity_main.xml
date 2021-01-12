@@ -1,60 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:tools="http://schemas.android.com/tools"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
-        android:background="#f0f0f0"
         android:layout_height="match_parent"
+        android:background="@color/light_background"
+        android:orientation="vertical"
         tools:context=".MainActivity">
 
-    <androidx.appcompat.widget.AppCompatImageView
-            android:id="@+id/iv"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            app:layout_constraintBottom_toTopOf="@id/bubbleTabBar"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
-
-    </androidx.appcompat.widget.AppCompatImageView>
-
-    <com.fxn.bubbletabbarapp.PresentationViewPager
-            android:id="@+id/viewpager"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            app:layout_constraintBottom_toTopOf="@id/bubbleTabBar"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
-
-    </com.fxn.bubbletabbarapp.PresentationViewPager>
-
-    <androidx.appcompat.widget.AppCompatTextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:padding="10dp"
-            android:text="BubbleTabBar"
-            android:textColor="#fff"
-            android:textSize="30dp"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintTop_toTopOf="parent"></androidx.appcompat.widget.AppCompatTextView>
-
-
-    <com.fxn.BubbleTabBar
-            android:id="@+id/bubbleTabBar"
+    <com.google.android.material.appbar.AppBarLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="#FFF"
-            android:elevation="16dp"
-            android:padding="7dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:bubbletab_menuResource="@menu/list"
-            app:bubbletab_disabled_icon_color="@color/colorPrimaryDark"
-            app:bubbletab_horizontal_padding="20dp"
-            app:bubbletab_icon_size="20dp"
-            app:bubbletab_title_size="16sp"
-            app:bubbletab_vertical_padding="10dp">
-    </com.fxn.BubbleTabBar>
-</androidx.constraintlayout.widget.ConstraintLayout>
+            android:background="#fff">
+
+        <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+            <com.google.android.material.appbar.MaterialToolbar
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    app:title="BubbleTabBar" />
+
+            <com.google.android.material.switchmaterial.SwitchMaterial
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical|right"
+                    android:layout_marginRight="20dp"
+                    android:gravity="right"
+                    android:visibility="gone" />
+
+        </FrameLayout>
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.fragment.app.FragmentContainerView
+            android:id="@+id/nav_host_fragment"
+            android:name="androidx.navigation.fragment.NavHostFragment"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            app:defaultNavHost="true"
+            app:navGraph="@navigation/main_nav" />
+</LinearLayout>

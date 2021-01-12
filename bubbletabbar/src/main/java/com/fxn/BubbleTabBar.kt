@@ -6,24 +6,21 @@ import android.os.Build
 import android.util.AttributeSet
 import android.util.Log
 import android.view.Gravity
-import android.view.Menu
 import android.widget.LinearLayout
+import androidx.annotation.IdRes
 import androidx.annotation.RequiresApi
-import androidx.navigation.NavController
-import androidx.viewpager.widget.ViewPager
 import com.fxn.bubbletabbar.R
 import com.fxn.parser.MenuParser
-import com.fxn.util.NavigationComponentHelper
 
 class BubbleTabBar : LinearLayout {
     private var onBubbleClickListener: OnBubbleClickListener? = null
-    private var disabled_icon_colorParam: Int = Color.GRAY
-    private var horizontal_paddingParam: Float = 0F
-    private var icon_paddingParam: Float = 0F
-    private var vertical_paddingParam: Float = 0F
-    private var icon_sizeParam: Float = 0F
-    private var title_sizeParam: Float = 0F
-    private var custom_fontParam: Int = 0
+    private var disabledIconColorParam: Int = Color.GRAY
+    private var horizontalPaddingParam: Float = 0F
+    private var iconPaddingParam: Float = 0F
+    private var verticalPaddingParam: Float = 0F
+    private var iconSizeParam: Float = 0F
+    private var titleSizeParam: Float = 0F
+    private var customFontParam: Int = 0
 
     init {
         orientation = HORIZONTAL
@@ -53,25 +50,6 @@ class BubbleTabBar : LinearLayout {
         this.onBubbleClickListener = onBubbleClickListener
     }
 
-    fun setupBubbleTabBar(viewPager: ViewPager) {
-        viewPager.addOnPageChangeListener(object : ViewPager.OnPageChangeListener {
-
-            override fun onPageScrollStateChanged(state: Int) {
-            }
-
-            override fun onPageScrolled(
-                position: Int,
-                positionOffset: Float,
-                positionOffsetPixels: Int
-            ) {
-            }
-
-            override fun onPageSelected(position: Int) {
-                setSelected(position)
-            }
-        })
-    }
-
     fun setSelected(position: Int, callListener: Boolean = true) {
         var it = (this@BubbleTabBar.getChildAt(position) as Bubble)
 
@@ -82,12 +60,21 @@ class BubbleTabBar : LinearLayout {
         }
         oldBubble = it
         if (onBubbleClickListener != null && callListener) {
-            onBubbleClickListener!!.onBubbleClick(it.id, position)
+            onBubbleClickListener!!.onBubbleClick(it.id)
         }
     }
 
-    fun setupWithNavController(menu: Menu, navController: NavController) {
-        NavigationComponentHelper.setupWithNavController(menu, this, navController)
+    fun setSelectedWithId(@IdRes id: Int, callListener: Boolean = true) {
+        var it = this@BubbleTabBar.findViewById<Bubble>(id)
+        var b = it.id
+        if (oldBubble != null && oldBubble!!.id != b) {
+            it.isSelected = !it.isSelected
+            oldBubble!!.isSelected = false
+        }
+        oldBubble = it
+        if (onBubbleClickListener != null && callListener) {
+            onBubbleClickListener!!.onBubbleClick(it.id)
+        }
     }
 
     private fun init(
@@ -102,30 +89,30 @@ class BubbleTabBar : LinearLayout {
             try {
                 val menuResource =
                     attributes.getResourceId(R.styleable.BubbleTabBar_bubbletab_menuResource, -1)
-                disabled_icon_colorParam = attributes.getColor(
+                disabledIconColorParam = attributes.getColor(
                     R.styleable.BubbleTabBar_bubbletab_disabled_icon_color,
                     Color.GRAY
                 )
-                custom_fontParam =
+                customFontParam =
                     attributes.getResourceId(R.styleable.BubbleTabBar_bubbletab_custom_font, 0)
 
-                icon_paddingParam = attributes.getDimension(
+                iconPaddingParam = attributes.getDimension(
                     R.styleable.BubbleTabBar_bubbletab_icon_padding,
                     resources.getDimension(R.dimen.bubble_icon_padding)
                 )
-                horizontal_paddingParam = attributes.getDimension(
+                horizontalPaddingParam = attributes.getDimension(
                     R.styleable.BubbleTabBar_bubbletab_horizontal_padding,
                     resources.getDimension(R.dimen.bubble_horizontal_padding)
                 )
-                vertical_paddingParam = attributes.getDimension(
+                verticalPaddingParam = attributes.getDimension(
                     R.styleable.BubbleTabBar_bubbletab_vertical_padding,
                     resources.getDimension(R.dimen.bubble_vertical_padding)
                 )
-                icon_sizeParam = attributes.getDimension(
+                iconSizeParam = attributes.getDimension(
                     R.styleable.BubbleTabBar_bubbletab_icon_size,
                     resources.getDimension(R.dimen.bubble_icon_size)
                 )
-                title_sizeParam = attributes.getDimension(
+                titleSizeParam = attributes.getDimension(
                     R.styleable.BubbleTabBar_bubbletab_title_size,
                     resources.getDimension(R.dimen.bubble_icon_size)
                 )
@@ -148,18 +135,18 @@ class BubbleTabBar : LinearLayout {
         val menu = (MenuParser(context).parse(menuResource))
         removeAllViews()
         Log.e("menu ", "-->" + menu.size)
-        menu.withIndex().forEach { (index, it) ->
+        menu.forEach { it ->
             if (it.id == 0) {
                 throw ExceptionInInitializerError("Id is not added in menu item")
             }
             it.apply {
-                it.horizontal_padding = horizontal_paddingParam
-                it.vertical_padding = vertical_paddingParam
-                it.icon_size = icon_sizeParam
-                it.icon_padding = icon_paddingParam
-                it.custom_font = custom_fontParam
-                it.disabled_icon_color = disabled_icon_colorParam
-                it.title_size = title_sizeParam
+                it.horizontalPadding = horizontalPaddingParam
+                it.verticalPadding = verticalPaddingParam
+                it.iconSize = iconSizeParam
+                it.iconPadding = iconPaddingParam
+                it.customFont = customFontParam
+                it.disabledIconColor = disabledIconColorParam
+                it.titleSize = titleSizeParam
             }
             addView(Bubble(context, it).apply {
                 if (it.checked) {
@@ -174,7 +161,7 @@ class BubbleTabBar : LinearLayout {
                     }
                     oldBubble = it as Bubble
                     if (onBubbleClickListener != null) {
-                        onBubbleClickListener!!.onBubbleClick(it.id, index)
+                        onBubbleClickListener!!.onBubbleClick(it.id)
                     }
                 }
             })

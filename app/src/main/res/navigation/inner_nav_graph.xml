@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        app:startDestination="@id/home">
+
+    <fragment
+            android:id="@+id/home"
+            android:name="com.fxn.bubbletabbarapp.ui.samples.childFragments.Fragment1"
+            android:label="fragment_1"
+            tools:layout="@layout/fragment_1" />
+    <fragment
+            android:id="@+id/log"
+            android:name="com.fxn.bubbletabbarapp.ui.samples.childFragments.Fragment2"
+            android:label="fragment_2"
+            tools:layout="@layout/fragment_2" />
+    <fragment
+            android:id="@+id/doc"
+            android:name="com.fxn.bubbletabbarapp.ui.samples.childFragments.Fragment3"
+            android:label="fragment_3"
+            tools:layout="@layout/fragment_3" />
+    <fragment
+            android:id="@+id/setting"
+            android:name="com.fxn.bubbletabbarapp.ui.samples.childFragments.Fragment4"
+            android:label="fragment_4"
+            tools:layout="@layout/fragment_4" />
+</navigation>

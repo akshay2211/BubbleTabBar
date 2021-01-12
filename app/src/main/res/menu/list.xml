@@ -6,23 +6,23 @@
             android:icon="@drawable/ic_grid"
             android:title="Home"
             android:checked="true"
-            android:iconTint="@color/home"/>
+            android:color="@color/home" />
 
     <item
             android:id="@+id/log"
             android:icon="@drawable/ic_clock"
             android:title="Logger"
-            android:iconTint="@color/logger"/>
+            android:color="@color/logger" />
     <item
             android:id="@+id/doc"
             android:icon="@drawable/ic_folder"
-            android:iconTint="@color/documents"
+            android:color="@color/documents"
             android:title="Documents" />
 
     <item
             android:id="@+id/setting"
             android:icon="@drawable/ic_android_black_24dp_rotated"
-            android:iconTint="@color/settings"
+            android:color="@color/settings"
             android:title="Settings" />
 
 </menu>

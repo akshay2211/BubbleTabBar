@@ -21,10 +21,10 @@ class Bubble(context: Context, var item: MenuItem) : FrameLayout(context) {
     private var title = TextView(context)
     private var container = LinearLayout(context)
 
-    private val dpAsPixels = item.horizontal_padding.toInt()
-    private val dpAsPixelsVertical = item.vertical_padding.toInt()
-    private val dpAsPixelsIcons = item.icon_size.toInt()
-    private val dpAsicon_padding = item.icon_padding.toInt()
+    private val dpAsPixels = item.horizontalPadding.toInt()
+    private val dpAsPixelsVertical = item.verticalPadding.toInt()
+    private val dpAsPixelsIcons = item.iconSize.toInt()
+    private val dpAsIconPadding = item.iconPadding.toInt()
 
     init {
         layoutParams = LinearLayout.LayoutParams(
@@ -52,18 +52,17 @@ class Bubble(context: Context, var item: MenuItem) : FrameLayout(context) {
         title.apply {
             layoutParams =
                 LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT).apply {
-                    setPaddingRelative(dpAsicon_padding, 0, 0, 0)
-                    Log.e("dpAsicon_padding", "-> $dpAsicon_padding")
+                    setPaddingRelative(dpAsIconPadding, 0, 0, 0)
                     gravity = Gravity.CENTER_VERTICAL
                     textAlignment = View.TEXT_ALIGNMENT_GRAVITY
                 }
 
             maxLines = 1
-            textSize = item.title_size / resources.displayMetrics.scaledDensity
+            textSize = item.titleSize / resources.displayMetrics.scaledDensity
             visibility = View.GONE
-            if (item.custom_font != 0) {
+            if (item.customFont != 0) {
                 try {
-                    typeface = ResourcesCompat.getFont(context, item.custom_font)
+                    typeface = ResourcesCompat.getFont(context, item.customFont)
                 } catch (e: Exception) {
                     Log.e("BubbleTabBar", "Could not get typeface: " + e.message)
                 }
@@ -78,7 +77,7 @@ class Bubble(context: Context, var item: MenuItem) : FrameLayout(context) {
         if (isEnabled) {
             icon.setColorStateListAnimator(
                 color = item.iconColor,
-                unselectedColor = item.disabled_icon_color
+                unselectedColor = item.disabledIconColor
             )
         } else {
             icon.setColorFilter(Color.GRAY)
