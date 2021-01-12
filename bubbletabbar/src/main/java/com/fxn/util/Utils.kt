@@ -4,7 +4,6 @@ import android.animation.Animator
 import android.animation.ArgbEvaluator
 import android.animation.StateListAnimator
 import android.animation.ValueAnimator
-import android.annotation.SuppressLint
 import android.graphics.Color
 import android.graphics.Rect
 import android.graphics.drawable.GradientDrawable
@@ -14,11 +13,11 @@ import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.annotation.ColorInt
+import androidx.core.graphics.drawable.DrawableCompat
 
 
 const val ICON_STATE_ANIMATOR_DURATION: Long = 350
 
-@SuppressLint("RestrictedApi")
 internal fun ImageView.colorAnimator(
     @ColorInt from: Int,
     @ColorInt to: Int,
@@ -107,9 +106,8 @@ internal fun TextView.collapse(
 internal fun LinearLayout.setCustomBackground(color: Int, alpha: Float) {
     val containerBackground = GradientDrawable().apply {
         cornerRadius = 100f
-
-        setTint(
-            Color.argb(
+        DrawableCompat.setTint(
+            DrawableCompat.wrap(this), Color.argb(
                 (Color.alpha(color) * alpha).toInt(),
                 Color.red(color),
                 Color.green(color),
