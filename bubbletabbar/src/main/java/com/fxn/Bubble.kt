@@ -24,7 +24,7 @@ class Bubble(context: Context, var item: MenuItem) : FrameLayout(context) {
     private val dpAsPixels = item.horizontalPadding.toInt()
     private val dpAsPixelsVertical = item.verticalPadding.toInt()
     private val dpAsPixelsIcons = item.iconSize.toInt()
-    private val dpAsicon_padding = item.iconPadding.toInt()
+    private val dpAsIconPadding = item.iconPadding.toInt()
 
     init {
         layoutParams = LinearLayout.LayoutParams(
@@ -52,8 +52,7 @@ class Bubble(context: Context, var item: MenuItem) : FrameLayout(context) {
         title.apply {
             layoutParams =
                 LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT).apply {
-                    setPaddingRelative(dpAsicon_padding, 0, 0, 0)
-                    Log.e("dpAsicon_padding", "-> $dpAsicon_padding")
+                    setPaddingRelative(dpAsIconPadding, 0, 0, 0)
                     gravity = Gravity.CENTER_VERTICAL
                     textAlignment = View.TEXT_ALIGNMENT_GRAVITY
                 }
