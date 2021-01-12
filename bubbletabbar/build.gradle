@@ -4,7 +4,7 @@ apply plugin: 'kotlin-android-extensions'
 ext {
     PUBLISH_GROUP_ID = 'com.fxn769'
     PUBLISH_ARTIFACT_ID = 'bubbletabbar'
-    PUBLISH_VERSION = '1.0.5'
+    PUBLISH_VERSION = '1.0.6'
 }
 
 android {
