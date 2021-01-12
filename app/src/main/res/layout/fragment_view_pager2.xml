@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
         android:background="#f0f0f0"
+        android:layout_height="match_parent"
         tools:context=".MainActivity">
 
     <androidx.appcompat.widget.AppCompatImageView
@@ -42,23 +42,22 @@
             app:layout_constraintLeft_toRightOf="parent">
 
         <com.fxn.BubbleTabBar
+                android:layout_marginTop="18dp"
+                android:layout_marginBottom="18dp"
                 android:id="@+id/bubbleTabBar"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="18dp"
-                android:layout_marginBottom="18dp"
                 android:background="#FFF"
                 android:padding="7dp"
+                app:bubbletab_menuResource="@menu/list"
                 app:bubbletab_custom_font="@font/josefinsansregular"
                 app:bubbletab_disabled_icon_color="@color/colorPrimaryDark"
                 app:bubbletab_horizontal_padding="18dp"
                 app:bubbletab_icon_padding="5sp"
                 app:bubbletab_icon_size="14dp"
-                app:bubbletab_menuResource="@menu/list"
                 app:bubbletab_title_size="14sp"
                 app:bubbletab_vertical_padding="10dp"></com.fxn.BubbleTabBar>
     </androidx.cardview.widget.CardView>
-
     <androidx.appcompat.widget.AppCompatTextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -68,8 +67,8 @@
             android:text="@string/vp2_integrations"
             android:textColor="@color/background"
             android:textSize="50dp"
-            app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

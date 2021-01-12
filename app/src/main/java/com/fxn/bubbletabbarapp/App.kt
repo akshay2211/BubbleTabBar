@@ -12,7 +12,6 @@ import com.fxn.bubbletabbarapp.utils.setupTheme
 class App : Application() {
     override fun onCreate() {
         super.onCreate()
-
         PreferenceManager.getDefaultSharedPreferences(this).setupTheme("list_theme", resources)
     }
 }

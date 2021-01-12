@@ -11,8 +11,8 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:gravity="center"
-            android:text="Settings"
             android:textColor="@color/background"
+            android:text="Settings"
             android:textSize="50dp" />
 
 </FrameLayout>
