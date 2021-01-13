@@ -48,13 +48,13 @@ inflate menu list
         android:icon="@drawable/ic_grid"
         android:title="Home"
         android:checked="true"
-        android:iconTint="@color/home"/>
+        android:color="@color/home"/>
 
     <item
         android:id="@+id/log"
         android:icon="@drawable/ic_clock"
         android:title="Logger"
-        android:iconTint="@color/logger"/>
+        android:color="@color/logger"/>
 </menu>
             
 ```
@@ -69,13 +69,59 @@ add onclick listener
            })
 ```
 
+
 setup viewpager to BubbleTabBar
+
 
 ```kotlin
 
-   bubbleTabBar.setupBubbleTabBar(viewpager)
+    viewPager.addOnPageChangeListener(object : ViewPager.OnPageChangeListener {
+            override fun onPageScrolled(
+                position: Int,
+                positionOffset: Float,
+                positionOffsetPixels: Int
+            ) {
+
+            }
+
+            override fun onPageSelected(position: Int) {
+                bubbleTabBar.setSelected(position, false)
+            }
+
+            override fun onPageScrollStateChanged(state: Int) {
+            }
+        })
    
 ```
+
+setup viewpager2 to BubbleTabBar
+
+
+```kotlin
+
+    viewPager2.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
+                               override fun onPageSelected(position: Int) {
+                                   super.onPageSelected(position)
+                                   bubbleTabBar.setSelected(position)
+                               }
+                           })
+
+```
+
+setup NavController to BubbleTabBar
+'onNavDestinationSelected' can be found in [here](https://github.com/akshay2211/BubbleTabBar/blob/cad8bdc3b634410c4d76c99853016e955f9fac70/app/src/main/java/com/fxn/bubbletabbarapp/utils/Helper.kt#L36)
+
+```kotlin
+
+    bubbleTabBar.addBubbleListener { id ->
+                bubbleTabBar.onNavDestinationSelected(id, navController)
+            }
+    navController.addOnDestinationChangedListener { _, destination, _ ->
+                bubbleTabBar.setSelectedWithId(destination.id, false)
+            }
+
+```
+
 ### Java Implementation
 for [Java-Implementation](https://github.com/akshay2211/BubbleTabBar/wiki/Java-Implementation)
 
@@ -98,20 +144,20 @@ Similar library [BubbleTabBar](https://github.com/Cuberto/bubble-icon-tabbar) by
         }
  ```
 ```groovy
-        implementation  'com.fxn769:bubbletabbar:1.0.5'
+        implementation  'com.fxn769:bubbletabbar:1.0.6'
 ```
 or Maven:
 ```xml
         <dependency>
             <groupId>com.fxn769</groupId>
             <artifactId>bubbletabbar</artifactId>
-            <version>1.0.5</version>
+            <version>1.0.6</version>
             <type>pom</type>
         </dependency>
 ```
 or ivy:
 ```xml
-        <dependency org='com.fxn769' name='bubbletabbar' rev='1.0.5'>
+        <dependency org='com.fxn769' name='bubbletabbar' rev='1.0.6'>
             <artifact name='bubbletabbar' ext='pom' ></artifact>
         </dependency>
 ```
