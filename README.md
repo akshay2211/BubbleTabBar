@@ -68,11 +68,8 @@ add onclick listener
                }
            })
 ```
-
-
 ### connect with components like [ViewPager](https://github.com/akshay2211/BubbleTabBar/blob/master/README.md#setup-viewpager-to-bubbletabbar), [ViewPager2](https://github.com/akshay2211/BubbleTabBar#setup-viewpager2-to-bubbletabbar) and [NavController](https://github.com/akshay2211/BubbleTabBar#setup-navcontroller-to-bubbletabbar)
 #### setup viewpager to BubbleTabBar
-
 
 ```kotlin
 
@@ -96,7 +93,6 @@ add onclick listener
 ```
 
 #### setup viewpager2 to BubbleTabBar
-
 
 ```kotlin
 
@@ -136,7 +132,7 @@ Similar library [BubbleTabBar](https://github.com/Cuberto/bubble-icon-tabbar) by
 
 ## Download
 
-[ ![Download](https://api.bintray.com/packages/fxn769/android_projects/BubbleTabBar/images/download.svg?version=1.0.3) ](https://bintray.com/fxn769/android_projects/BubbleTabBar/1.0.3/link)
+[![Download](https://api.bintray.com/packages/fxn769/android_projects/BubbleTabBar/images/download.svg?version=1.0.3)](https://bintray.com/fxn769/android_projects/BubbleTabBar/1.0.3/link)
 
 
  include in app level build.gradle
@@ -163,8 +159,6 @@ or ivy:
             <artifact name='bubbletabbar' ext='pom' ></artifact>
         </dependency>
 ```
-
-
 
 ## License
 Licensed under the Apache License, Version 2.0, [click here for the full license](/LICENSE).
