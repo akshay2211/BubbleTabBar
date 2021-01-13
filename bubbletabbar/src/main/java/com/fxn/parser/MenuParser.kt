@@ -54,7 +54,7 @@ internal class MenuParser(private val context: Context) {
                     )
                 }
                 eventType == END_TAG && name == XML_MENU_TAG -> isEndOfMenu = true
-                eventType == END_DOCUMENT -> throw RuntimeException("Unexpected end of document")
+                eventType == END_DOCUMENT -> throw NullPointerException("Unexpected end of document")
 
             }
             eventType = parser.next()

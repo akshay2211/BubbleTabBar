@@ -13,7 +13,7 @@ import kotlinx.android.synthetic.main.fragment_child.view.*
 private const val ARG_PARAM1 = "param1"
 
 class ViewPagerAdapter(supportFragmentManager: FragmentManager) :
-        FragmentPagerAdapter(supportFragmentManager, BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT) {
+    FragmentPagerAdapter(supportFragmentManager, BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT) {
     var list = arrayListOf("Home", "Logger", "Documents", "Settings")
     override fun getItem(position: Int): Fragment {
         return Child.newInstance(list[position])
@@ -35,6 +35,9 @@ class ViewPagerAdapter(supportFragmentManager: FragmentManager) :
 
         companion object {
 
+            /**
+             *  static method for retrieving Fragment object with param
+             */
             @JvmStatic
             fun newInstance(
                 param1: String

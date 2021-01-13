@@ -6,7 +6,10 @@ import androidx.core.content.ContextCompat
 import com.fxn.bubbletabbarapp.utils.isDarkThemeOn
 import com.fxn.bubbletabbarapp.utils.setUpStatusNavigationBarColors
 
-
+/**
+ * [MainActivity] is used as the main container to hold all child
+ * fragments for listing examples.
+ */
 class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -17,6 +20,4 @@ class MainActivity : AppCompatActivity() {
         )
         setContentView(R.layout.activity_main)
     }
-
-
 }

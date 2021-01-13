@@ -23,6 +23,7 @@ class ViewPagerFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         view.viewpager.apply {
+            setDurationScroll(1000)
             adapter = ViewPagerAdapter(childFragmentManager)
             addOnPageChangeListener(
                 ArianaBackgroundListener(

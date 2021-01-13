@@ -5,6 +5,9 @@ import androidx.annotation.ColorInt
 import androidx.annotation.DrawableRes
 import androidx.annotation.FontRes
 
+/**
+ * [MenuItem] to hold navigation tab element
+ */
 data class MenuItem(
     val id: Int,
     val title: CharSequence,
@@ -13,7 +16,6 @@ data class MenuItem(
     @ColorInt val iconColor: Int,
     val checked: Boolean = false
 ) {
-
     @FontRes
     var customFont: Int = 0
     var horizontalPadding: Float = 0f

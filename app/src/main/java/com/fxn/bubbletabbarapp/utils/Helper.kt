@@ -13,7 +13,9 @@ import com.fxn.bubbletabbarapp.R
  * akshay2211.github.io
  **/
 
-
+/**
+ * Extension method to connect [ViewPager] from [BubbleTabBar]
+ */
 fun BubbleTabBar.setupViewPager(viewPager: ViewPager) {
     viewPager.addOnPageChangeListener(object : ViewPager.OnPageChangeListener {
         override fun onPageScrolled(
@@ -21,18 +23,19 @@ fun BubbleTabBar.setupViewPager(viewPager: ViewPager) {
             positionOffset: Float,
             positionOffsetPixels: Int
         ) {
-
         }
 
         override fun onPageSelected(position: Int) {
             setSelected(position, false)
         }
 
-        override fun onPageScrollStateChanged(state: Int) {
-        }
+        override fun onPageScrollStateChanged(state: Int) {}
     })
 }
 
+/**
+ * Extension method to connect [NavController] from [BubbleTabBar]
+ */
 fun BubbleTabBar.onNavDestinationSelected(
     itemId: Int,
     navController: NavController
@@ -56,7 +59,6 @@ fun BubbleTabBar.onNavDestinationSelected(
     builder.setPopUpTo(itemId, true)
     val options = builder.build()
     return try {
-        //TODO provide proper API instead of using Exceptions as Control-Flow.
         navController.navigate(itemId, null, options)
         true
     } catch (e: IllegalArgumentException) {

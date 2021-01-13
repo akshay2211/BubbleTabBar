@@ -13,9 +13,15 @@ import kotlinx.android.synthetic.main.fragment_child.view.*
  * @since : 11/01/21, Mon
  * akshay2211.github.io
  **/
+/**
+ * [ViewPager2Adapter] adapter for ViewPager2 Example
+ */
 class ViewPager2Adapter : RecyclerView.Adapter<ViewPager2Adapter.ViewHolder>() {
     var list = arrayListOf("Home", "Logger", "Documents", "Settings")
 
+    /**
+     * [ViewHolder] internal custom holder to show ui in [ViewPager2Adapter] adapter
+     */
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
