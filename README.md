@@ -134,7 +134,6 @@ Similar library [BubbleTabBar](https://github.com/Cuberto/bubble-icon-tabbar) by
 
 [![Download](https://api.bintray.com/packages/fxn769/android_projects/BubbleTabBar/images/download.svg?version=1.0.3)](https://bintray.com/fxn769/android_projects/BubbleTabBar/1.0.3/link)
 
-
  include in app level build.gradle
  ```groovy
         repositories {
