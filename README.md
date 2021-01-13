@@ -70,6 +70,7 @@ add onclick listener
 ```
 
 
+### connect BubbleTabBar with components like [ViewPager](https://github.com/akshay2211/BubbleTabBar/README.md#L74), [ViewPager2](https://github.com/akshay2211/BubbleTabBar/README.md#L98) and [NavController](https://github.com/akshay2211/BubbleTabBar/README.md#L112)
 setup viewpager to BubbleTabBar
 
 
@@ -109,7 +110,8 @@ setup viewpager2 to BubbleTabBar
 ```
 
 setup NavController to BubbleTabBar
-'onNavDestinationSelected' can be found in [here](https://github.com/akshay2211/BubbleTabBar/blob/cad8bdc3b634410c4d76c99853016e955f9fac70/app/src/main/java/com/fxn/bubbletabbarapp/utils/Helper.kt#L36)
+
+*onNavDestinationSelected* can be found in [here](https://github.com/akshay2211/BubbleTabBar/blob/cad8bdc3b634410c4d76c99853016e955f9fac70/app/src/main/java/com/fxn/bubbletabbarapp/utils/Helper.kt#L36)
 
 ```kotlin
 
