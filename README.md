@@ -71,7 +71,7 @@ add onclick listener
            })
 ```
 ### connect with components like [ViewPager](https://github.com/akshay2211/BubbleTabBar/blob/master/README.md#setup-viewpager-to-bubbletabbar), [ViewPager2](https://github.com/akshay2211/BubbleTabBar#setup-viewpager2-to-bubbletabbar) and [NavController](https://github.com/akshay2211/BubbleTabBar#setup-navcontroller-to-bubbletabbar)
-#### setup viewpager to BubbleTabBar
+#### setup ViewPager to BubbleTabBar
 
 ```kotlin
 
@@ -94,7 +94,7 @@ add onclick listener
    
 ```
 
-#### setup viewpager2 to BubbleTabBar
+#### setup ViewPager2 to BubbleTabBar
 
 ```kotlin
 
