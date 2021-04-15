@@ -27,6 +27,7 @@ class Bubble(context: Context, var item: MenuItem) : FrameLayout(context) {
     private val dpAsIconPadding = item.iconPadding.toInt()
 
     init {
+        id = item.id
         layoutParams = LinearLayout.LayoutParams(
             LayoutParams.WRAP_CONTENT,
             LayoutParams.WRAP_CONTENT,
@@ -48,6 +49,17 @@ class Bubble(context: Context, var item: MenuItem) : FrameLayout(context) {
             layoutParams = LayoutParams(dpAsPixelsIcons, dpAsPixelsIcons).apply {
                 gravity = Gravity.CENTER_VERTICAL
             }
+            setImageResource(item.icon)
+            isEnabled = item.enabled
+            if (isEnabled) {
+                setColorStateListAnimator(
+                    color = item.iconColor,
+                    unselectedColor = item.disabledIconColor
+                )
+            } else {
+                setColorFilter(Color.GRAY)
+                this@Bubble.setOnClickListener(null)
+            }
         }
         title.apply {
             layoutParams =
@@ -67,26 +79,15 @@ class Bubble(context: Context, var item: MenuItem) : FrameLayout(context) {
                     Log.e("BubbleTabBar", "Could not get typeface: " + e.message)
                 }
             }
-        }
-        id = item.id
-        isEnabled = item.enabled
-        title.text = item.title
-        title.setTextColor(item.iconColor)
-
-        icon.setImageResource(item.icon)
-        if (isEnabled) {
-            icon.setColorStateListAnimator(
-                color = item.iconColor,
-                unselectedColor = item.disabledIconColor
-            )
-        } else {
-            icon.setColorFilter(Color.GRAY)
-            setOnClickListener(null)
+            text = item.title
+            setTextColor(item.iconColor)
         }
 
-        container.addView(icon)
-        container.addView(title)
-        addView(container)
+
+        addView(container.apply {
+            addView(icon)
+            addView(title)
+        })
     }
 
 
