@@ -5,7 +5,7 @@
         android:layout_width="match_parent"
         android:background="#f0f0f0"
         android:layout_height="match_parent"
-        tools:context=".MainActivity">
+        tools:context="io.ak1.bubbletabbarapp.MainActivity">
 
     <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/iv"
@@ -41,7 +41,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toRightOf="parent">
 
-        <com.fxn.BubbleTabBar
+        <io.ak1.BubbleTabBar
                 android:layout_marginTop="18dp"
                 android:layout_marginBottom="18dp"
                 android:id="@+id/bubbleTabBar"
@@ -56,7 +56,7 @@
                 app:bubbletab_icon_padding="5sp"
                 app:bubbletab_icon_size="14dp"
                 app:bubbletab_title_size="14sp"
-                app:bubbletab_vertical_padding="10dp"></com.fxn.BubbleTabBar>
+                app:bubbletab_vertical_padding="10dp"></io.ak1.BubbleTabBar>
     </androidx.cardview.widget.CardView>
     <androidx.appcompat.widget.AppCompatTextView
             android:layout_width="wrap_content"
