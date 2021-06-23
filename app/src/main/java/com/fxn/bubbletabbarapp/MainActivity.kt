@@ -18,6 +18,7 @@ class MainActivity : AppCompatActivity() {
             isDarkThemeOn(),
             ContextCompat.getColor(this, R.color.background)
         )
+        supportActionBar?.hide()
         setContentView(R.layout.activity_main)
     }
 }

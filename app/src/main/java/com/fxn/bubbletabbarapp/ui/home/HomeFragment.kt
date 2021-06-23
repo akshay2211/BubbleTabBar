@@ -7,20 +7,26 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.fxn.bubbletabbarapp.R
+import com.fxn.bubbletabbarapp.databinding.FragmentHomeBinding
 import com.fxn.bubbletabbarapp.ui.adapter.MenuRecyclerViewAdapter
-import kotlinx.android.synthetic.main.fragment_home.view.*
 
 
 class HomeFragment : Fragment() {
+    private var _binding: FragmentHomeBinding? = null
+    private val binding get() = _binding!!
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View = inflater.inflate(R.layout.fragment_home, container, false)
+    ): View? {
+        _binding = FragmentHomeBinding.inflate(inflater, container, false)
+        val view = binding.root
+        return view
+    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        view.recyclerView.adapter = MenuRecyclerViewAdapter {
+        binding.recyclerView.adapter = MenuRecyclerViewAdapter {
             findNavController().navigate(
                 when (it) {
                     0 -> R.id.action_homeFragment_to_viewPagerFragment
@@ -30,4 +36,10 @@ class HomeFragment : Fragment() {
             )
         }
     }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
+    }
+
 }

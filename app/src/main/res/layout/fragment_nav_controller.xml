@@ -17,7 +17,7 @@
 
     </androidx.appcompat.widget.AppCompatImageView>
 
-    <fragment
+    <androidx.fragment.app.FragmentContainerView
             android:id="@+id/inner_host_nav"
             android:name="androidx.navigation.fragment.NavHostFragment"
             android:layout_width="0dp"

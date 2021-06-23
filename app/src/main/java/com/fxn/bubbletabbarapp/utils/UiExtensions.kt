@@ -16,7 +16,7 @@ import com.fxn.bubbletabbarapp.R
 /**
  * @author : Akshay Sharma
  * @since : 11/01/21, Mon
- * akshay2211.github.io
+ * https://ak1.io
  **/
 
 /**
