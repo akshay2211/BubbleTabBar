@@ -7,35 +7,47 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.widget.ViewPager2
 import com.fxn.bubbletabbarapp.R
+import com.fxn.bubbletabbarapp.databinding.FragmentViewPager2Binding
 import com.fxn.bubbletabbarapp.ui.adapter.ViewPager2Adapter
-import kotlinx.android.synthetic.main.fragment_view_pager2.view.*
 
 class ViewPager2Fragment : Fragment() {
+    private var _binding: FragmentViewPager2Binding? = null
+    private val binding get() = _binding!!
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View = inflater.inflate(R.layout.fragment_view_pager2, container, false)
+    ): View {
+        _binding = FragmentViewPager2Binding.inflate(inflater, container, false)
+        val view = binding.root
+        return view
+    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        view.viewpager2.apply {
+        binding.viewpager2.apply {
             adapter = ViewPager2Adapter()
             registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
                 override fun onPageSelected(position: Int) {
                     super.onPageSelected(position)
-                    view.bubbleTabBar.setSelected(position)
+                    binding.bubbleTabBar.setSelected(position)
                 }
             })
         }
 
-        view.bubbleTabBar.addBubbleListener { id ->
+        binding.bubbleTabBar.addBubbleListener { id ->
             when (id) {
-                R.id.home -> view.viewpager2.currentItem = 0
-                R.id.log -> view.viewpager2.currentItem = 1
-                R.id.doc -> view.viewpager2.currentItem = 2
-                R.id.setting -> view.viewpager2.currentItem = 3
+                R.id.home -> binding.viewpager2.currentItem = 0
+                R.id.log -> binding.viewpager2.currentItem = 1
+                R.id.doc -> binding.viewpager2.currentItem = 2
+                R.id.setting -> binding.viewpager2.currentItem = 3
             }
         }
     }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
+    }
+
 }

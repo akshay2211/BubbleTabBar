@@ -4,6 +4,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/documents"
+        tools:viewBindingIgnore="true"
         tools:context=".ui.samples.childFragments.Fragment3">
 
     <androidx.appcompat.widget.AppCompatTextView
