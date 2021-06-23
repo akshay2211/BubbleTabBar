@@ -5,7 +5,7 @@
         app:startDestination="@id/homeFragment">
     <fragment
             android:id="@+id/homeFragment"
-            android:name="com.fxn.bubbletabbarapp.ui.home.HomeFragment"
+            android:name="io.ak1.bubbletabbarapp.ui.home.HomeFragment"
             android:label="HomeFragment">
         <action
                 android:id="@+id/action_homeFragment_to_viewPagerFragment"
@@ -20,16 +20,16 @@
     </fragment>
     <fragment
             android:id="@+id/viewPagerFragment"
-            android:name="com.fxn.bubbletabbarapp.ui.samples.ViewPagerFragment"
+            android:name="io.ak1.bubbletabbarapp.ui.samples.ViewPagerFragment"
             android:label="fragment_view_pager"
             tools:layout="@layout/fragment_view_pager" />
     <fragment
             android:id="@+id/viewPager2Fragment"
-            android:name="com.fxn.bubbletabbarapp.ui.samples.ViewPager2Fragment"
+            android:name="io.ak1.bubbletabbarapp.ui.samples.ViewPager2Fragment"
             android:label="ViewPager2Fragment" />
     <fragment
             android:id="@+id/navControllerFragment"
-            android:name="com.fxn.bubbletabbarapp.ui.samples.NavControllerFragment"
+            android:name="io.ak1.bubbletabbarapp.ui.samples.NavControllerFragment"
             android:label="NavControllerFragment" />
 
 </navigation>
