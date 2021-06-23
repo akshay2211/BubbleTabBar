@@ -15,7 +15,7 @@ BubbleTabBar is bottom navigation bar with customizable bubble like tabs
 ## Usage
  
 ```xml
-    <com.fxn.BubbleTabBar
+    <io.ak1.BubbleTabBar
                android:id="@+id/bubbleTabBar"
                android:layout_width="match_parent"
                android:layout_height="wrap_content"
@@ -30,17 +30,17 @@ BubbleTabBar is bottom navigation bar with customizable bubble like tabs
                app:bubbletab_title_size="16sp"
                app:bubbletab_icon_padding="5sp"
                app:bubbletab_vertical_padding="10dp">
-       </com.fxn.BubbleTabBar>
+       </io.ak1.BubbleTabBar>
 ```
 or just use
 ```xml
-    <com.fxn.BubbleTabBar
+    <io.ak1.BubbleTabBar
                android:id="@+id/bubbleTabBar"
                android:layout_width="match_parent"
                android:layout_height="wrap_content"
                android:padding="7dp"
                app:bubbletab_menuResource="@menu/list">
-       </com.fxn.BubbleTabBar>
+       </io.ak1.BubbleTabBar>
 ```
 inflate menu list
 ```xml
@@ -139,24 +139,24 @@ Similar library [BubbleTabBar](https://github.com/Cuberto/bubble-icon-tabbar) by
  include in app level build.gradle
  ```groovy
         repositories {
-           maven { url 'https://jitpack.io' }
+          mavenCentral()
         }
  ```
 ```groovy
-        implementation  'com.fxn769:bubbletabbar:1.0.6'
+        implementation  'io.ak1:bubbletabbar:1.0.7'
 ```
 or Maven:
 ```xml
         <dependency>
-            <groupId>com.fxn769</groupId>
+            <groupId>io.ak1</groupId>
             <artifactId>bubbletabbar</artifactId>
-            <version>1.0.6</version>
+            <version>1.0.7</version>
             <type>pom</type>
         </dependency>
 ```
 or ivy:
 ```xml
-        <dependency org='com.fxn769' name='bubbletabbar' rev='1.0.6'>
+        <dependency org='io.ak1' name='bubbletabbar' rev='1.0.7'>
             <artifact name='bubbletabbar' ext='pom' ></artifact>
         </dependency>
 ```
