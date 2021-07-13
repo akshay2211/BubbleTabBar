@@ -8,7 +8,7 @@ BubbleTabBar is bottom navigation bar with customizable bubble like tabs
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/a3f9c05f456b45f1a1e332b3cf668de8)](https://app.codacy.com/gh/akshay2211/BubbleTabBar?utm_source=github.com&utm_medium=referral&utm_content=akshay2211/BubbleTabBar&utm_campaign=Badge_Grade)
 [![BubbleTabBar](https://www.appbrain.com/stats/libraries/shield/bubbletabbar.svg)](https://www.appbrain.com/stats/libraries/details/bubbletabbar/bubbletabbar)
 [![](https://img.shields.io/badge/Android%20Arsenal-BubbleTabBar-blue.svg?style=flat-square)](https://android-arsenal.com/details/1/7841)
-[![](https://jitpack.io/v/akshay2211/PixImagePicker.svg?style=flat-square)](https://jitpack.io/#akshay2211/BubbleTabBar)
+[![](https://img.shields.io/badge/Awesome%20Android-BubbleTabBar-green.svg?style=flat-square)](https://android.libhunt.com/bubbletabbar-alternatives)
 [![](https://img.shields.io/badge/API-16%2B-orange.svg?style=flat-square)](https://android-arsenal.com/api?level=21)
 
 
