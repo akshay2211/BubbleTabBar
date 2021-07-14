@@ -66,7 +66,7 @@ class BubbleTabBar : LinearLayout {
     }
 
     fun setSelectedWithId(@IdRes id: Int, callListener: Boolean = true) {
-        val it = this@BubbleTabBar.findViewById<Bubble>(id)
+        val it = this@BubbleTabBar.findViewById<Bubble>(id) ?: return
         val b = it.id
         if (oldBubble != null && oldBubble!!.id != b) {
             it.isSelected = !it.isSelected
