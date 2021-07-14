@@ -30,7 +30,8 @@ BubbleTabBar is bottom navigation bar with customizable bubble like tabs
                app:bubbletab_icon_size="20dp"
                app:bubbletab_title_size="16sp"
                app:bubbletab_icon_padding="5sp"
-               app:bubbletab_vertical_padding="10dp">
+               app:bubbletab_vertical_padding="10dp"
+               app:bubbletab_tab_corner_radius="25dp">
        </io.ak1.BubbleTabBar>
 ```
 or just use
@@ -118,7 +119,7 @@ add onclick listener
                 bubbleTabBar.onNavDestinationSelected(id, navController)
             }
     navController.addOnDestinationChangedListener { _, destination, _ ->
-                bubbleTabBar.setSelectedWithId(destination.id, false)
+                setSelectedWithId(destination.id, false)
             }
 
 ```
@@ -144,20 +145,20 @@ Similar library [BubbleTabBar](https://github.com/Cuberto/bubble-icon-tabbar) by
         }
  ```
 ```groovy
-        implementation  'io.ak1:bubbletabbar:1.0.7'
+        implementation  'io.ak1:bubbletabbar:1.0.8'
 ```
 or Maven:
 ```xml
         <dependency>
             <groupId>io.ak1</groupId>
             <artifactId>bubbletabbar</artifactId>
-            <version>1.0.7</version>
+            <version>1.0.8</version>
             <type>pom</type>
         </dependency>
 ```
 or ivy:
 ```xml
-        <dependency org='io.ak1' name='bubbletabbar' rev='1.0.7'>
+        <dependency org='io.ak1' name='bubbletabbar' rev='1.0.8'>
             <artifact name='bubbletabbar' ext='pom' ></artifact>
         </dependency>
 ```
