@@ -4,25 +4,25 @@
     <item
             android:id="@+id/home"
             android:icon="@drawable/ic_grid"
-            android:title="Home"
+            android:title="@string/home"
             android:checked="true"
             android:color="@color/home" />
 
     <item
             android:id="@+id/log"
             android:icon="@drawable/ic_clock"
-            android:title="Logger"
+            android:title="@string/logger"
             android:color="@color/logger" />
     <item
             android:id="@+id/doc"
             android:icon="@drawable/ic_folder"
             android:color="@color/documents"
-            android:title="Documents" />
+            android:title="@string/documents" />
 
     <item
             android:id="@+id/setting"
             android:icon="@drawable/ic_android_black_24dp_rotated"
             android:color="@color/settings"
-            android:title="Settings" />
+            android:title="@string/settings" />
 
 </menu>

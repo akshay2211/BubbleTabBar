@@ -1,3 +1,5 @@
+@file:Suppress("unused")
+
 package io.ak1.bubbletabbarapp
 
 import android.app.Application

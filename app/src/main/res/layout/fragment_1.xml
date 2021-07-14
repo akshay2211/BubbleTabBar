@@ -5,6 +5,7 @@
         android:layout_height="match_parent"
         android:background="@color/home"
         tools:context=".ui.samples.childFragments.Fragment1"
+        tools:ignore="Overdraw"
         tools:viewBindingIgnore="true">
 
     <androidx.appcompat.widget.AppCompatTextView
@@ -12,8 +13,8 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:gravity="center"
-            android:text="Home"
+            android:text="@string/home"
             android:textColor="@color/background"
-            android:textSize="50dp" />
+            android:textSize="50sp" />
 
 </FrameLayout>

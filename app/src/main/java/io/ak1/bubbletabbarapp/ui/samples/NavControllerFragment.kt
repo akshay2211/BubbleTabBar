@@ -19,8 +19,7 @@ class NavControllerFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         _binding = FragmentNavControllerBinding.inflate(inflater, container, false)
-        val view = binding.root
-        return view
+        return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -29,7 +28,7 @@ class NavControllerFragment : Fragment() {
             .findFragmentById(R.id.inner_host_nav) as NavHostFragment
         val navController = navHostFragment.navController
         binding.bubbleTabBar.addBubbleListener { id ->
-            binding.bubbleTabBar.onNavDestinationSelected(id, navController)
+            onNavDestinationSelected(id, navController)
         }
         navController.addOnDestinationChangedListener { _, destination, _ ->
             binding.bubbleTabBar.setSelectedWithId(destination.id, false)
