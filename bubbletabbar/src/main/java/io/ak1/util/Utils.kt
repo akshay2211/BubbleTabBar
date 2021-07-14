@@ -54,9 +54,9 @@ internal fun ImageView.setColorStateListAnimator(
 
 var DURATION = 350L
 var ALPHA = 0.15f
-internal fun TextView.expand(container: LinearLayout, iconColor: Int) {
+internal fun TextView.expand(container: LinearLayout, iconColor: Int, cornerRadius: Float) {
     val bounds = Rect()
-    container.setCustomBackground(iconColor, ALPHA)
+    container.setCustomBackground(iconColor, ALPHA, cornerRadius)
     paint.apply {
         getTextBounds(text.toString(), 0, text.length, bounds)
         ValueAnimator.ofInt(0, bounds.width() + paddingStart + 10).apply {
@@ -83,7 +83,8 @@ internal fun TextView.expand(container: LinearLayout, iconColor: Int) {
 
 internal fun TextView.collapse(
     container: LinearLayout,
-    iconColor: Int
+    iconColor: Int,
+    cornerRadius: Float
 ) {
     animate().alpha(0f).apply {
         setUpdateListener {
@@ -96,16 +97,20 @@ internal fun TextView.collapse(
             }
             interpolator = LinearInterpolator()
             duration = DURATION
-            container.setCustomBackground(iconColor, ALPHA - (ALPHA * it.animatedFraction))
+            container.setCustomBackground(
+                iconColor,
+                ALPHA - (ALPHA * it.animatedFraction),
+                cornerRadius
+            )
             requestLayout()
         }
     }.start()
 
 }
 
-internal fun LinearLayout.setCustomBackground(color: Int, alpha: Float) {
+internal fun LinearLayout.setCustomBackground(color: Int, alpha: Float, cornerRadius: Float) {
     val containerBackground = GradientDrawable().apply {
-        cornerRadius = 100f
+        this.cornerRadius = cornerRadius
         DrawableCompat.setTint(
             DrawableCompat.wrap(this), Color.argb(
                 (Color.alpha(color) * alpha).toInt(),
