@@ -13,7 +13,7 @@ import io.ak1.bubbletabbarapp.databinding.MenuLayoutRowBinding
  **/
 class MenuRecyclerViewAdapter(var call: (pos: Int) -> Unit) :
     RecyclerView.Adapter<MenuRecyclerViewAdapter.ViewHolder>() {
-    var list = arrayListOf("ViewPager Sample", "ViewPager2 Sample", "NavController Sample")
+    private var list = arrayListOf("ViewPager Sample", "ViewPager2 Sample", "NavController Sample")
 
     class ViewHolder(menuLayoutRowBinding: MenuLayoutRowBinding) :
         RecyclerView.ViewHolder(menuLayoutRowBinding.root)

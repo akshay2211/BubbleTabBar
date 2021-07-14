@@ -5,7 +5,8 @@
         android:layout_height="match_parent"
         android:background="@color/documents"
         tools:viewBindingIgnore="true"
-        tools:context=".ui.samples.childFragments.Fragment3">
+        tools:context=".ui.samples.childFragments.Fragment3"
+        tools:ignore="Overdraw">
 
     <androidx.appcompat.widget.AppCompatTextView
             android:layout_width="wrap_content"
@@ -13,7 +14,7 @@
             android:layout_gravity="center"
             android:gravity="center"
             android:textColor="@color/background"
-            android:text="Documents"
-            android:textSize="50dp" />
+            android:text="@string/documents"
+            android:textSize="50sp" />
 
 </FrameLayout>

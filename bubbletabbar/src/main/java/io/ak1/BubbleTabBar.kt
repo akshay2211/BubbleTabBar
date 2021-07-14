@@ -20,6 +20,7 @@ class BubbleTabBar : LinearLayout {
     private var verticalPaddingParam: Float = 0F
     private var iconSizeParam: Float = 0F
     private var titleSizeParam: Float = 0F
+    private var cornerRadiusParam: Float = 0F
     private var customFontParam: Int = 0
 
     init {
@@ -51,9 +52,9 @@ class BubbleTabBar : LinearLayout {
     }
 
     fun setSelected(position: Int, callListener: Boolean = true) {
-        var it = (this@BubbleTabBar.getChildAt(position) as Bubble)
+        val it = (this@BubbleTabBar.getChildAt(position) as Bubble)
 
-        var b = it.id
+        val b = it.id
         if (oldBubble != null && oldBubble!!.id != b) {
             it.isSelected = !it.isSelected
             oldBubble!!.isSelected = false
@@ -65,8 +66,8 @@ class BubbleTabBar : LinearLayout {
     }
 
     fun setSelectedWithId(@IdRes id: Int, callListener: Boolean = true) {
-        var it = this@BubbleTabBar.findViewById<Bubble>(id)
-        var b = it.id
+        val it = this@BubbleTabBar.findViewById<Bubble>(id) ?: return
+        val b = it.id
         if (oldBubble != null && oldBubble!!.id != b) {
             it.isSelected = !it.isSelected
             oldBubble!!.isSelected = false
@@ -116,6 +117,10 @@ class BubbleTabBar : LinearLayout {
                     R.styleable.BubbleTabBar_bubbletab_title_size,
                     resources.getDimension(R.dimen.bubble_icon_size)
                 )
+                cornerRadiusParam = attributes.getDimension(
+                    R.styleable.BubbleTabBar_bubbletab_tab_corner_radius,
+                    resources.getDimension(R.dimen.bubble_corner_radius)
+                )
                 if (menuResource >= 0) {
                     setMenuResource(menuResource)
                 }
@@ -147,6 +152,7 @@ class BubbleTabBar : LinearLayout {
                 it.customFont = customFontParam
                 it.disabledIconColor = disabledIconColorParam
                 it.titleSize = titleSizeParam
+                it.cornerRadius = cornerRadiusParam
             }
             addView(Bubble(context, it).apply {
                 if (it.checked) {
@@ -154,7 +160,7 @@ class BubbleTabBar : LinearLayout {
                     oldBubble = this
                 }
                 setOnClickListener {
-                    var b = it.id
+                    val b = it.id
                     if (oldBubble != null && oldBubble!!.id != b) {
                         (it as Bubble).isSelected = !it.isSelected
                         oldBubble!!.isSelected = false

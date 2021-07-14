@@ -5,4 +5,5 @@
     <dimen name="bubble_icon_size">20dp</dimen>
     <dimen name="bubble_title_size">12dp</dimen>
     <dimen name="bubble_icon_padding">5dp</dimen>
+    <dimen name="bubble_corner_radius">25dp</dimen>
 </resources>

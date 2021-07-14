@@ -36,7 +36,7 @@ fun BubbleTabBar.setupViewPager(viewPager: ViewPager) {
 /**
  * Extension method to connect [NavController] from [BubbleTabBar]
  */
-fun BubbleTabBar.onNavDestinationSelected(
+fun onNavDestinationSelected(
     itemId: Int,
     navController: NavController
 ): Boolean {

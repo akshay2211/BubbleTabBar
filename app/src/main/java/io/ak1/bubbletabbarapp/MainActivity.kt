@@ -16,9 +16,9 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         window.setUpStatusNavigationBarColors(
             isDarkThemeOn(),
-            ContextCompat.getColor(this, io.ak1.bubbletabbarapp.R.color.background)
+            ContextCompat.getColor(this, R.color.background)
         )
         supportActionBar?.hide()
-        setContentView(io.ak1.bubbletabbarapp.R.layout.activity_main)
+        setContentView(R.layout.activity_main)
     }
 }

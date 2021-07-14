@@ -31,7 +31,7 @@ class PresentationViewPager : ViewPager {
 
     }
 
-    inner class OwnScroller(context: Context, var durationScroll: Int) :
+    inner class OwnScroller(context: Context, private var durationScroll: Int) :
         Scroller(context, DecelerateInterpolator()) {
 
 
@@ -41,8 +41,6 @@ class PresentationViewPager : ViewPager {
     }
 
     companion object {
-
-        const val DEFAULT_SCROLL_DURATION = 250
         const val PRESENTATION_MODE_SCROLL_DURATION = 1000
     }
 }

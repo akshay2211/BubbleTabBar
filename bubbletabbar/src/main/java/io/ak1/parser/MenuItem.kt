@@ -23,5 +23,6 @@ data class MenuItem(
     var iconPadding: Float = 0f
     var iconSize: Float = 0f
     var titleSize: Float = 0f
+    var cornerRadius: Float = 0f
     var disabledIconColor: Int = Color.GRAY
 }

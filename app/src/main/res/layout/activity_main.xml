@@ -6,7 +6,8 @@
         android:layout_height="match_parent"
         android:background="@color/light_background"
         android:orientation="vertical"
-        tools:context="io.ak1.bubbletabbarapp.MainActivity">
+        tools:context="io.ak1.bubbletabbarapp.MainActivity"
+        tools:ignore="Overdraw">
 
     <com.google.android.material.appbar.AppBarLayout
             android:layout_width="match_parent"
@@ -25,9 +26,9 @@
             <com.google.android.material.switchmaterial.SwitchMaterial
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center_vertical|right"
-                    android:layout_marginRight="20dp"
-                    android:gravity="right"
+                    android:layout_gravity="center_vertical|end"
+                    android:layout_marginEnd="20dp"
+                    android:gravity="end"
                     android:visibility="gone" />
 
         </FrameLayout>
@@ -37,7 +38,7 @@
             android:id="@+id/nav_host_fragment"
             android:name="androidx.navigation.fragment.NavHostFragment"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="0dp"
             android:layout_weight="1"
             app:defaultNavHost="true"
             app:navGraph="@navigation/main_nav" />

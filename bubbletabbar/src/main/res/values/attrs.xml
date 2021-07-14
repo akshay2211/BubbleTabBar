@@ -9,6 +9,7 @@
         <attr name="bubbletab_vertical_padding" format="dimension" />
         <attr name="bubbletab_icon_size" format="dimension" />
         <attr name="bubbletab_title_size" format="dimension" />
+        <attr name="bubbletab_tab_corner_radius" format="dimension" />
     </declare-styleable>
 
     <declare-styleable name="Bubble">

@@ -2,12 +2,9 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/BubbleTabBar.iml" filepath="$PROJECT_DIR$/.idea/modules/BubbleTabBar.iml" group="BubbleTabBar" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/BubbleTabBar-app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/BubbleTabBar-app.iml" group="BubbleTabBar/app" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/bubbletabbar/BubbleTabBar-bubbletabbar.iml" filepath="$PROJECT_DIR$/.idea/modules/bubbletabbar/BubbleTabBar-bubbletabbar.iml" group="BubbleTabBar/bubbletabbar" />
-      <module fileurl="file://$PROJECT_DIR$/BubbleTabBarApp.iml" filepath="$PROJECT_DIR$/BubbleTabBarApp.iml" />
-      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://$PROJECT_DIR$/bubbletabbar/bubbletabbar.iml" filepath="$PROJECT_DIR$/bubbletabbar/bubbletabbar.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/BubbleTabBar.iml" filepath="$PROJECT_DIR$/.idea/modules/BubbleTabBar.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/BubbleTabBar.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/BubbleTabBar.app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/bubbletabbar/BubbleTabBar.bubbletabbar.iml" filepath="$PROJECT_DIR$/.idea/modules/bubbletabbar/BubbleTabBar.bubbletabbar.iml" />
     </modules>
   </component>
 </project>

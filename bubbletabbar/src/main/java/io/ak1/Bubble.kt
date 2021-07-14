@@ -1,5 +1,6 @@
 package io.ak1
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.graphics.Color
 import android.util.Log
@@ -15,7 +16,8 @@ import io.ak1.util.collapse
 import io.ak1.util.expand
 import io.ak1.util.setColorStateListAnimator
 
-class Bubble(context: Context, var item: MenuItem) : FrameLayout(context) {
+@SuppressLint("ViewConstructor")
+class Bubble(context: Context, private var item: MenuItem) : FrameLayout(context) {
 
     private var icon = ImageView(context)
     private var title = TextView(context)
@@ -102,9 +104,9 @@ class Bubble(context: Context, var item: MenuItem) : FrameLayout(context) {
     override fun setSelected(selected: Boolean) {
         super.setSelected(selected)
         if (selected) {
-            title.expand(container, item.iconColor)
+            title.expand(container, item.iconColor, item.cornerRadius)
         } else {
-            title.collapse(container, item.iconColor)
+            title.collapse(container, item.iconColor, item.cornerRadius)
         }
     }
 

@@ -3,5 +3,9 @@
     <string name="vp_integrations">ViewPager\nIntegration</string>
     <string name="vp2_integrations">ViewPager2\nIntegration</string>
     <string name="nc_integrations">NavigationController\nIntegration</string>
+    <string name="home">Home</string>
+    <string name="logger">Logger</string>
+    <string name="documents">Documents</string>
+    <string name="settings">Settings</string>
     <!-- TODO: Remove or change this placeholder text -->
 </resources>

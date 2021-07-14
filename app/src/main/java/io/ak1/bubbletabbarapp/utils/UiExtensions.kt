@@ -24,8 +24,7 @@ import io.ak1.bubbletabbarapp.R
  * and returns boolean
  */
 fun Context.isDarkThemeOn(): Boolean {
-    var key = PreferenceManager.getDefaultSharedPreferences(this).getString("list_theme", "3")
-    return when (key) {
+    return when (PreferenceManager.getDefaultSharedPreferences(this).getString("list_theme", "3")) {
         "2" -> true
         "1" -> false
         else -> return resources.configuration.uiMode and
@@ -39,7 +38,7 @@ fun Context.isDarkThemeOn(): Boolean {
  * setup the theme whenever the configuration is changed
  */
 fun SharedPreferences?.setupTheme(key: String?, resources: Resources) {
-    var value = this?.getString(key, "1")
+    val value = this?.getString(key, "1")
     val def = if (resources.configuration.uiMode and
         Configuration.UI_MODE_NIGHT_MASK == Configuration.UI_MODE_NIGHT_YES
     ) {

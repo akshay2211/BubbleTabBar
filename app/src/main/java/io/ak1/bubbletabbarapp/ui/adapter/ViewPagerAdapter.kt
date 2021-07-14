@@ -19,7 +19,7 @@ private const val ARG_PARAM2 = "param2"
 @Suppress("DEPRECATION")
 class ViewPagerAdapter(supportFragmentManager: FragmentManager) :
     FragmentPagerAdapter(supportFragmentManager, BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT) {
-    var list = arrayListOf("Home", "Logger", "Documents", "Settings")
+    private var list = arrayListOf("Home", "Logger", "Documents", "Settings")
 
 
     override fun getItem(position: Int): Fragment {
@@ -68,8 +68,7 @@ class ViewPagerAdapter(supportFragmentManager: FragmentManager) :
             savedInstanceState: Bundle?
         ): View {
             _binding = FragmentChildBinding.inflate(inflater, container, false)
-            val view = binding.root
-            return view
+            return binding.root
         }
 
         override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
