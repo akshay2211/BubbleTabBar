@@ -44,7 +44,7 @@ or just use
                app:bubbletab_menuResource="@menu/list">
        </io.ak1.BubbleTabBar>
 ```
-inflate menu list
+Inflate menu list
 ```xml
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
@@ -63,7 +63,7 @@ inflate menu list
             
 ```
 
-add onclick listener 
+Add onclick listener 
 
 ```kotlin
    bubbleTabBar.addBubbLeListener(object : OnBubbleClickListener{
@@ -72,8 +72,8 @@ add onclick listener
                }
            })
 ```
-### connect with components like [ViewPager](https://github.com/akshay2211/BubbleTabBar/blob/master/README.md#setup-viewpager-to-bubbletabbar), [ViewPager2](https://github.com/akshay2211/BubbleTabBar#setup-viewpager2-to-bubbletabbar) and [NavController](https://github.com/akshay2211/BubbleTabBar#setup-navcontroller-to-bubbletabbar)
-#### setup ViewPager to BubbleTabBar
+### Connect with components like [ViewPager](https://github.com/akshay2211/BubbleTabBar/blob/master/README.md#setup-viewpager-to-bubbletabbar), [ViewPager2](https://github.com/akshay2211/BubbleTabBar#setup-viewpager2-to-bubbletabbar) and [NavController](https://github.com/akshay2211/BubbleTabBar#setup-navcontroller-to-bubbletabbar)
+#### Setup ViewPager to BubbleTabBar
 
 ```kotlin
 
@@ -96,7 +96,7 @@ add onclick listener
    
 ```
 
-#### setup ViewPager2 to BubbleTabBar
+#### Setup ViewPager2 to BubbleTabBar
 
 ```kotlin
 
@@ -109,7 +109,7 @@ add onclick listener
 
 ```
 
-#### setup NavController to BubbleTabBar
+#### Setup NavController to BubbleTabBar
 
 *onNavDestinationSelected* can be found in [here](https://github.com/akshay2211/BubbleTabBar/blob/cad8bdc3b634410c4d76c99853016e955f9fac70/app/src/main/java/com/fxn/bubbletabbarapp/utils/Helper.kt#L36)
 
