@@ -5,13 +5,9 @@ import android.animation.ArgbEvaluator
 import android.animation.StateListAnimator
 import android.animation.ValueAnimator
 import android.graphics.Color
-import android.graphics.Rect
 import android.graphics.drawable.GradientDrawable
-import android.view.View
-import android.view.animation.LinearInterpolator
 import android.widget.ImageView
 import android.widget.LinearLayout
-import android.widget.TextView
 import androidx.annotation.ColorInt
 import androidx.core.graphics.drawable.DrawableCompat
 
@@ -49,63 +45,6 @@ internal fun ImageView.setColorStateListAnimator(
 
     // Refresh the drawable state to avoid the unselected animation on view creation
     refreshDrawableState()
-}
-
-
-var DURATION = 350L
-var ALPHA = 0.15f
-internal fun TextView.expand(container: LinearLayout, iconColor: Int, cornerRadius: Float) {
-    val bounds = Rect()
-    container.setCustomBackground(iconColor, ALPHA, cornerRadius)
-    paint.apply {
-        getTextBounds(text.toString(), 0, text.length, bounds)
-        ValueAnimator.ofInt(0, bounds.width() + paddingStart + 10).apply {
-            addUpdateListener {
-                if (it.animatedFraction == (0.0f)) {
-                    visibility = View.INVISIBLE
-                }
-                layoutParams.apply {
-                    width = it.animatedValue as Int
-                }
-
-                if (it.animatedFraction == (1.0f)) {
-                    visibility = View.VISIBLE
-                }
-                requestLayout()
-            }
-            interpolator = LinearInterpolator()
-
-            duration = DURATION
-        }.start()
-    }
-}
-
-
-internal fun TextView.collapse(
-    container: LinearLayout,
-    iconColor: Int,
-    cornerRadius: Float
-) {
-    animate().alpha(0f).apply {
-        setUpdateListener {
-            layoutParams.apply {
-                width = (width - (width * it.animatedFraction)).toInt()
-            }
-            if (it.animatedFraction == 1.0f) {
-                visibility = View.GONE
-                alpha = 1.0f
-            }
-            interpolator = LinearInterpolator()
-            duration = DURATION
-            container.setCustomBackground(
-                iconColor,
-                ALPHA - (ALPHA * it.animatedFraction),
-                cornerRadius
-            )
-            requestLayout()
-        }
-    }.start()
-
 }
 
 internal fun LinearLayout.setCustomBackground(color: Int, alpha: Float, cornerRadius: Float) {
