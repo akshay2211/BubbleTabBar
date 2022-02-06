@@ -8,6 +8,7 @@ import android.graphics.Rect
 import android.util.Log
 import android.view.Gravity
 import android.view.View
+import android.view.ViewPropertyAnimator
 import android.view.animation.LinearInterpolator
 import android.widget.FrameLayout
 import android.widget.ImageView
@@ -31,6 +32,7 @@ class Bubble(context: Context, private var item: MenuItem) : FrameLayout(context
     private val dpAsIconPadding = item.iconPadding.toInt()
 
     private var expandAnimator: ValueAnimator? = null
+    private var collapseAnimator: ViewPropertyAnimator? = null
     private val DURATION = 350L
     private val ALPHA = 0.15f
 
@@ -112,6 +114,9 @@ class Bubble(context: Context, private var item: MenuItem) : FrameLayout(context
         this.clearAnimation()
         expandAnimator?.removeAllUpdateListeners()
         expandAnimator?.cancel()
+        collapseAnimator?.setUpdateListener(null)
+        collapseAnimator?.cancel()
+        title.alpha = 1.0f
         if (selected) {
             expand(container, item.iconColor, item.cornerRadius)
         } else {
@@ -150,7 +155,7 @@ class Bubble(context: Context, private var item: MenuItem) : FrameLayout(context
 
     fun collapse(container: LinearLayout, iconColor: Int, cornerRadius: Float) {
         title.apply {
-            animate().alpha(0f).apply {
+            collapseAnimator = animate().alpha(0f).apply {
                 setUpdateListener {
                     layoutParams.apply {
                         width = (width - (width * it.animatedFraction)).toInt()
@@ -168,7 +173,8 @@ class Bubble(context: Context, private var item: MenuItem) : FrameLayout(context
                     )
                     requestLayout()
                 }
-            }.start()
+            }
+            collapseAnimator?.start()
         }
     }
 
