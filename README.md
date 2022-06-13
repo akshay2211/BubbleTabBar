@@ -132,13 +132,7 @@ for [Java-Implementation](https://github.com/akshay2211/BubbleTabBar/wiki/Java-I
 ## Credits
 Thanks to [Ariana](https://github.com/akshay2211/Ariana) for transition in sample
 
-## IOS
-
-Similar library [BubbleTabBar](https://github.com/Cuberto/bubble-icon-tabbar) by [Cuberto](https://github.com/Cuberto)
-
 ## Download
-
-[![Download](https://api.bintray.com/packages/fxn769/android_projects/BubbleTabBar/images/download.svg?version=1.0.3)](https://bintray.com/fxn769/android_projects/BubbleTabBar/1.0.3/link)
 
  include in app level build.gradle
  ```groovy
